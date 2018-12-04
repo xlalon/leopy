@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 
-# -*- coding: utf-8 -*-
-
-from .account import UserLoginHandler
-from .point import UserPointHandler
-
+from .oauth import *
 
 urls = [
-    (r'account/login', UserLoginHandler),
-    (r'point/point', UserPointHandler)
+    # github登录路由
+    (r'oauth/github_login', GithubOauthHandler),
+    # github登录回调
+    (r'oauth/github_check', GithubOauthHandler),
 ]
