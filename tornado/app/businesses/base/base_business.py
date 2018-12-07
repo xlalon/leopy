@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from app.services.test.hello_world import HelloWorldService
-
 
 class BaseBusiness:
 
-    def __init__(self):
-        self.hello_world_svs = HelloWorldService()
+    def __init__(self, mysql_db=None, redis_db=None):
+        self.mysql_db = mysql_db
+        self.redis_db = redis_db

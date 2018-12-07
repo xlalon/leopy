@@ -20,7 +20,7 @@ class _DBConfig:
     MySQL_AUTH = 'Xiao0000'
     MySQL_DB = 'leopy'
     Redis_HOST = '127.0.0.1'
-    Redis_PORT = '6379'
+    Redis_PORT = 6379
     Redis_USER = ''
     Redis_AUTH = ''
     Redis_DB = '0'

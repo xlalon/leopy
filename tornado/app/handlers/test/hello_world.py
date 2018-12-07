@@ -7,5 +7,5 @@ from ..base.base_handler import BaseHandler
 class HelloWorldHandler(BaseHandler):
 
     async def get(self):
-        code, data = await HelloWorldBusiness().gain_hello_world()
-        return self.render_data(code=code, data=data)
+        data = await HelloWorldBusiness(redis_db=self.redis_db).gain_hello_world()
+        return self.render_data(data=data)

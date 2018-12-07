@@ -12,18 +12,24 @@ class BaseHandler(RequestHandler):
         self.__ip = ''
         self.__time_now = datetime.now()
         self.__mysql_session = None
+        self.__redis_session = None
 
     @property
     def mysql_db(self):
         self.__mysql_session = DBServer().mysql_db()
         return self.__mysql_session
 
+    @property
+    def redis_db(self):
+        self.__redis_session = DBServer().redis_db()
+        return self.__redis_session
+
     def prepare(self):
         self.__ip = self.request.headers.get('ip', '')
 
     def on_finish(self):
         if self.__mysql_session:
-            self.__mysql_session.close()
+            self.__mysql_session.remove()
 
     @property
     def headers(self):
