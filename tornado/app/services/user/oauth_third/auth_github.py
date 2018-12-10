@@ -58,10 +58,10 @@ class OAuthGITHUB(OAuthBase):
 
     async def get_email(self):
         params = {'access_token': self.access_token}
-        # response = self._get('https://api.github.com/user/emails', params)
-        response = await self.get(
-            domain='https://api.github.com',
-            path='/user/emails',
-            query=params)
+        response = self._get('https://api.github.com/user/emails', params)
+        # response = await self.get(
+        #     domain='https://api.github.com',
+        #     path='/user/emails',
+        #     query=params)
         result = json.loads(response.decode('utf-8'))
         return result[0]['email']

@@ -16,13 +16,10 @@ class GithubCheckBus:
         try:
             github_data = await multi({
                 # 'access_token': self.oauth_svs.get_access_token(request_code),
-                # 'user_info': self.oauth_svs.get_user_info(),
+                'user_info': self.oauth_svs.get_user_info(),
                 'user_email': self.oauth_svs.get_email()
             })
-        except Exception as e:
-            print(e)
-
-            # 获取令牌/用户信息失败，反馈失败信息
+        except:
             code = Config.CODE_GITHUB_OAUTH_FAIL
             msg = '登录失败'
             data = '获取授权失败，请确认是否允许授权，并重试。若问题无法解决，请联系网站管理人员'
