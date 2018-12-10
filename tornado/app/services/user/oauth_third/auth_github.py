@@ -36,20 +36,32 @@ class OAuthGITHUB(OAuthBase):
             'redirect_url': self.redirect_url,
             'state': str(random.randrange(10 ** 6, 10 ** 7))
         }
-        response = self._post('https://github.com/login/oauth/access_token', params)
+        # response = self._post('https://github.com/login/oauth/access_token', params)
+        response = await self.post(
+            domain='https://github.com',
+            path='login/oauth/access_token',
+            body=params)
         result = urllib.parse.parse_qs(response, True)
-        self.access_token = result[b'access_token'][0]
+        self.access_token = result['access_token'][0]
         return self.access_token
 
     async def get_user_info(self):
         params = {'access_token': self.access_token}
         response = self._get('https://api.github.com/user', params)
+        # response = await self.get(
+        #     domain='https://api.github.com',
+        #     path='/user',
+        #     query=params)
         result = json.loads(response.decode('utf-8'))
         self.openid = result.get('id', '')
         return result
 
     async def get_email(self):
         params = {'access_token': self.access_token}
-        response = self._get('https://api.github.com/user/emails', params)
+        # response = self._get('https://api.github.com/user/emails', params)
+        response = await self.get(
+            domain='https://api.github.com',
+            path='/user/emails',
+            query=params)
         result = json.loads(response.decode('utf-8'))
         return result[0]['email']

@@ -20,4 +20,5 @@ def make_app():
     return tornado.web.Application(url_wrapper([
         (r"/test/", include('app.handlers.test.urls')),
         (r"/user/", include('app.handlers.user.urls')),
+        (r"/product/", include('app.handlers.product.urls')),
     ]), **load_settings(mode='test'))

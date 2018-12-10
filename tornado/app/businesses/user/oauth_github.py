@@ -12,13 +12,16 @@ class GithubCheckBus:
         self.oauth_svs = OAuthGITHUB(Config.GITHUB_ID, Config.GITHUB_KEY, Config.GITHUB_CALLBACK_URL)
 
     async def github_check(self, request_code):
+        await self.oauth_svs.get_access_token(request_code)
         try:
             github_data = await multi({
-                'access_token': self.oauth_svs.get_access_token(request_code),
-                'user_info': self.oauth_svs.get_user_info(),
+                # 'access_token': self.oauth_svs.get_access_token(request_code),
+                # 'user_info': self.oauth_svs.get_user_info(),
                 'user_email': self.oauth_svs.get_email()
             })
-        except:
+        except Exception as e:
+            print(e)
+
             # 获取令牌/用户信息失败，反馈失败信息
             code = Config.CODE_GITHUB_OAUTH_FAIL
             msg = '登录失败'

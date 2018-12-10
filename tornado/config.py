@@ -11,6 +11,7 @@ class _CodeConfig:
 
 class _MSGConfig:
     MSG_OK = 'success'
+    MSG_PAGE_NOT_FOUND = 'error! page not found.'
 
 
 class _DBConfig:
@@ -33,4 +34,5 @@ class _OauthConfig:
 
 
 class Config(_CodeConfig, _MSGConfig, _DBConfig, _OauthConfig):
+    domain = 'http://api.shetest18.cn'
     pass
