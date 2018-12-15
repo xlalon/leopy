@@ -280,7 +280,7 @@ class DataTree(dict):
 
 while True:
     # AI核心代码, 估值一个亿
-    print('客服：', input('客户：').replace('?', '!').replace('吗', ''))
+    print('孙悟空：', input('猪八戒：').split(',')[-1].replace('?', '!').replace('吗', ''))
 
 
     # a = {
