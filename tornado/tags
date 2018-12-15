@@ -1,0 +1,196 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AsyncHTTPClient	app/services/svs_base.py	/^from tornado.httpclient import HTTPRequest, AsyncHTTPClient$/;"	i
+Base	app/models/__init__.py	/^Base = declarative_base()$/;"	v
+Base	app/models/user.py	/^from .import Base$/;"	i
+BaseBusiness	app/businesses/base/base_business.py	/^class BaseBusiness:$/;"	c
+BaseBusiness	app/businesses/test/hello_world.py	/^from ..base.base_business import BaseBusiness$/;"	i
+BaseHandler	app/handlers/base/base_handler.py	/^class BaseHandler(RequestHandler):$/;"	c
+BaseHandler	app/handlers/product/coupon/coupon_bind.py	/^from app.handlers.base.base_handler import BaseHandler$/;"	i
+BaseHandler	app/handlers/product/search/word_search.py	/^from app.handlers.base.base_handler import BaseHandler$/;"	i
+BaseHandler	app/handlers/test/hello_world.py	/^from ..base.base_handler import BaseHandler$/;"	i
+BaseHandler	app/handlers/user/oauth/oauth_github.py	/^from app.handlers.base.base_handler import BaseHandler$/;"	i
+BaseService	app/services/product/coupon.py	/^from ..svs_base import BaseService$/;"	i
+BaseService	app/services/product/search.py	/^from ..svs_base import BaseService$/;"	i
+BaseService	app/services/svs_base.py	/^class BaseService:$/;"	c
+BaseService	app/services/user/oauth_third/auth_base.py	/^from app.services.svs_base import BaseService$/;"	i
+CODE_GITHUB_OAUTH_FAIL	config.py	/^    CODE_GITHUB_OAUTH_FAIL = '01000001'$/;"	v	class:_CodeConfig
+CODE_OK	config.py	/^    CODE_OK = '0'$/;"	v	class:_CodeConfig
+CODE_PAGE_NOT_FOUND	config.py	/^    CODE_PAGE_NOT_FOUND = '01000100'$/;"	v	class:_CodeConfig
+Column	app/models/user.py	/^from sqlalchemy import Column, String, Integer, Enum$/;"	i
+Config	app/businesses/user/oauth_github.py	/^from config import Config$/;"	i
+Config	app/handlers/base/base_handler.py	/^from config import Config$/;"	i
+Config	app/handlers/user/oauth/oauth_github.py	/^from config import Config$/;"	i
+Config	app/models/__init__.py	/^from config import Config$/;"	i
+Config	app/services/svs_base.py	/^from config import Config$/;"	i
+Config	config.py	/^class Config(_CodeConfig, _MSGConfig, _DBConfig, _OauthConfig):$/;"	c
+CouponBindHandler	app/handlers/product/coupon/coupon_bind.py	/^class CouponBindHandler(BaseHandler):$/;"	c
+CouponBindHandler	app/handlers/product/urls.py	/^from app.handlers.product.coupon.coupon_bind import CouponBindHandler$/;"	i
+DBServer	app/handlers/base/base_handler.py	/^from app.models import DBServer$/;"	i
+DBServer	app/models/__init__.py	/^class DBServer:$/;"	c
+Enum	app/models/user.py	/^from sqlalchemy import Column, String, Integer, Enum$/;"	i
+GITHUB_CALLBACK_URL	config.py	/^    GITHUB_CALLBACK_URL = 'http:\/\/127.0.0.1:1024\/user\/oauth\/github_check'$/;"	v	class:_OauthConfig
+GITHUB_ID	config.py	/^    GITHUB_ID = '34a4a42c445859c6becf'$/;"	v	class:_OauthConfig
+GITHUB_KEY	config.py	/^    GITHUB_KEY = 'db5c02e0ccd75284d69605345710e6eab5ae372a'$/;"	v	class:_OauthConfig
+GithubCheckBus	app/businesses/user/oauth_github.py	/^class GithubCheckBus:$/;"	c
+GithubCheckBus	app/handlers/user/oauth/oauth_github.py	/^from app.businesses.user.oauth_github import GithubCheckBus$/;"	i
+GithubOauthHandler	app/handlers/user/oauth/__init__.py	/^from .oauth_github import GithubOauthHandler$/;"	i
+GithubOauthHandler	app/handlers/user/oauth/oauth_github.py	/^class GithubOauthHandler(BaseHandler):$/;"	c
+HTTPError	app/services/svs_base.py	/^from tornado.web import HTTPError$/;"	i
+HTTPRequest	app/services/svs_base.py	/^from tornado.httpclient import HTTPRequest, AsyncHTTPClient$/;"	i
+HelloWorldBusiness	app/businesses/test/hello_world.py	/^class HelloWorldBusiness(BaseBusiness):$/;"	c
+HelloWorldBusiness	app/handlers/test/hello_world.py	/^from app.businesses.test.hello_world import HelloWorldBusiness$/;"	i
+HelloWorldHandler	app/handlers/test/hello_world.py	/^class HelloWorldHandler(BaseHandler):$/;"	c
+HelloWorldHandler	app/handlers/test/urls.py	/^from .hello_world import HelloWorldHandler$/;"	i
+Integer	app/models/user.py	/^from sqlalchemy import Column, String, Integer, Enum$/;"	i
+JSONDecodeError	app/services/svs_base.py	/^from json import JSONDecodeError$/;"	i
+MSG_OK	config.py	/^    MSG_OK = 'success'$/;"	v	class:_MSGConfig
+MSG_PAGE_NOT_FOUND	config.py	/^    MSG_PAGE_NOT_FOUND = 'error! page not found.'$/;"	v	class:_MSGConfig
+MySQL_AUTH	config.py	/^    MySQL_AUTH = 'Xiao0000'$/;"	v	class:_DBConfig
+MySQL_DB	config.py	/^    MySQL_DB = 'leopy'$/;"	v	class:_DBConfig
+MySQL_HOST	config.py	/^    MySQL_HOST = '127.0.0.1'$/;"	v	class:_DBConfig
+MySQL_PORT	config.py	/^    MySQL_PORT = '3306'$/;"	v	class:_DBConfig
+MySQL_USER	config.py	/^    MySQL_USER = 'root'$/;"	v	class:_DBConfig
+OAuthBase	app/services/user/oauth_third/auth_base.py	/^class OAuthBase(BaseService):$/;"	c
+OAuthBase	app/services/user/oauth_third/auth_github.py	/^from .auth_base import OAuthBase$/;"	i
+OAuthGITHUB	app/businesses/user/oauth_github.py	/^from app.services.user.oauth_third.auth_github import OAuthGITHUB$/;"	i
+OAuthGITHUB	app/handlers/user/oauth/oauth_github.py	/^from app.services.user.oauth_third.auth_github import OAuthGITHUB$/;"	i
+OAuthGITHUB	app/services/user/oauth_third/auth_github.py	/^class OAuthGITHUB(OAuthBase):$/;"	c
+ProdCouponSVS	app/handlers/product/coupon/coupon_bind.py	/^from app.services.product.coupon import ProdCouponSVS$/;"	i
+ProdCouponSVS	app/services/product/coupon.py	/^class ProdCouponSVS(BaseService):$/;"	c
+ProdSearchSVS	app/handlers/product/search/word_search.py	/^from app.services.product.search import ProdSearchSVS$/;"	i
+ProdSearchSVS	app/services/product/search.py	/^class ProdSearchSVS(BaseService):$/;"	c
+Redis_AUTH	config.py	/^    Redis_AUTH = ''$/;"	v	class:_DBConfig
+Redis_DB	config.py	/^    Redis_DB = '0'$/;"	v	class:_DBConfig
+Redis_HOST	config.py	/^    Redis_HOST = '127.0.0.1'$/;"	v	class:_DBConfig
+Redis_PORT	config.py	/^    Redis_PORT = 6379$/;"	v	class:_DBConfig
+Redis_USER	config.py	/^    Redis_USER = ''$/;"	v	class:_DBConfig
+RequestHandler	app/handlers/base/base_handler.py	/^from tornado.web import RequestHandler$/;"	i
+SWITCH	app/utils/decoraters.py	/^SWITCH = True$/;"	v
+String	app/models/user.py	/^from sqlalchemy import Column, String, Integer, Enum$/;"	i
+User	app/models/user.py	/^class User(Base):$/;"	c
+WordSearchHandler	app/handlers/product/search/word_search.py	/^class WordSearchHandler(BaseHandler):$/;"	c
+WordSearchHandler	app/handlers/product/urls.py	/^from app.handlers.product.search.word_search import WordSearchHandler$/;"	i
+_	app/test/test.py	/^    async def _(*args, **kwargs):$/;"	f	function:data_monitor
+_	app/utils/decoraters.py	/^        def _(*args, **kwargs):$/;"	f	function:type_assert.wrapper
+_	app/utils/decoraters.py	/^    async def _(*args, **kwargs):$/;"	f	function:data_switch
+_CodeConfig	config.py	/^class _CodeConfig:$/;"	c
+_DBConfig	config.py	/^class _DBConfig:$/;"	c
+_MSGConfig	config.py	/^class _MSGConfig:$/;"	c
+_OauthConfig	config.py	/^class _OauthConfig:$/;"	c
+__all__	app/handlers/user/oauth/__init__.py	/^__all__ = [$/;"	v
+__init__	app/businesses/base/base_business.py	/^    def __init__(self, mysql_db=None, redis_db=None):$/;"	m	class:BaseBusiness
+__init__	app/businesses/user/oauth_github.py	/^    def __init__(self):$/;"	m	class:GithubCheckBus
+__init__	app/handlers/base/base_handler.py	/^    def __init__(self, *args, **kwargs):$/;"	m	class:BaseHandler
+__init__	app/models/__init__.py	/^    def __init__(self):$/;"	m	class:DBServer
+__init__	app/services/svs_base.py	/^    def __init__(self, *args, **kwargs):$/;"	m	class:BaseService
+__init__	app/services/user/oauth_third/auth_base.py	/^    def __init__(self, client_id, client_key, redirect_url, *args, **kwargs):$/;"	m	class:OAuthBase
+__init__	app/services/user/oauth_third/auth_github.py	/^    def __init__(self, *args, **kwargs):$/;"	m	class:OAuthGITHUB
+__tablename__	app/models/user.py	/^    __tablename__ = 'user'$/;"	v	class:User
+_filter	app/utils/helpers.py	/^    def _filter(_dst, _src):$/;"	f	function:items_filter
+_get	app/services/svs_base.py	/^    def _get(url, data):$/;"	m	class:BaseService
+_output_headers	app/handlers/base/base_handler.py	/^    def _output_headers(self):$/;"	m	class:BaseHandler
+_post	app/services/svs_base.py	/^    def _post(url, data):$/;"	m	class:BaseService
+age	app/models/user.py	/^    age = Column(Integer, nullable=True)$/;"	v	class:User
+app	run.py	/^    app = make_app()$/;"	v
+coupon_bind_post	app/services/product/coupon.py	/^    async def coupon_bind_post(self, headers, body):$/;"	m	class:ProdCouponSVS
+create_engine	app/models/__init__.py	/^from sqlalchemy import create_engine$/;"	i
+data_monitor	app/test/test.py	/^def data_monitor(func=None, default=None):$/;"	f
+data_switch	app/utils/decoraters.py	/^def data_switch(func=None, default=None, switch=SWITCH):$/;"	f
+datetime	app/handlers/base/base_handler.py	/^from datetime import datetime$/;"	i
+declarative_base	app/models/__init__.py	/^from sqlalchemy.ext.declarative import declarative_base$/;"	i
+dict2_pm_headers	app/utils/helpers.py	/^def dict2_pm_headers(src):$/;"	f
+dict_get	app/businesses/user/oauth_github.py	/^from app.utils.helpers import dict_get$/;"	i
+dict_get	app/utils/decoraters.py	/^from .helpers import dict_get, is_dict$/;"	i
+dict_get	app/utils/helpers.py	/^def dict_get(data, key_flow, *, default=None):$/;"	f
+domain	config.py	/^    domain = 'http:\/\/api.shetest18.cn'$/;"	v	class:Config
+drop_invalid_dict_items	app/utils/helpers.py	/^def drop_invalid_dict_items(data, *, drop_key=None, drop_value=float('inf')):$/;"	f
+extract_dict_field	app/utils/helpers.py	/^def extract_dict_field(field_keys, src, default=''):$/;"	f
+gain_hello_world	app/businesses/test/hello_world.py	/^    async def gain_hello_world(self):$/;"	m	class:HelloWorldBusiness
+get	app/handlers/product/search/word_search.py	/^    async def get(self):$/;"	m	class:WordSearchHandler
+get	app/handlers/test/hello_world.py	/^    async def get(self):$/;"	m	class:HelloWorldHandler
+get	app/handlers/user/oauth/oauth_github.py	/^    async def get(self):$/;"	m	class:GithubOauthHandler
+get	app/services/svs_base.py	/^    async def get(self, domain, path=None, query=None, **kwargs):$/;"	m	class:BaseService
+get_access_token	app/services/user/oauth_third/auth_base.py	/^    async def get_access_token(self, code):$/;"	m	class:OAuthBase
+get_access_token	app/services/user/oauth_third/auth_github.py	/^    async def get_access_token(self, code):$/;"	m	class:OAuthGITHUB
+get_auth_url	app/services/user/oauth_third/auth_base.py	/^    async def get_auth_url(self):$/;"	m	class:OAuthBase
+get_auth_url	app/services/user/oauth_third/auth_github.py	/^    async def get_auth_url(self):$/;"	m	class:OAuthGITHUB
+get_current_user	app/handlers/base/base_handler.py	/^    def get_current_user(self):$/;"	m	class:BaseHandler
+get_email	app/services/user/oauth_third/auth_base.py	/^    async def get_email(self):$/;"	m	class:OAuthBase
+get_email	app/services/user/oauth_third/auth_github.py	/^    async def get_email(self):$/;"	m	class:OAuthGITHUB
+get_open_id	app/services/user/oauth_third/auth_base.py	/^    async def get_open_id(self):$/;"	m	class:OAuthBase
+get_user_info	app/services/user/oauth_third/auth_base.py	/^    async def get_user_info(self):$/;"	m	class:OAuthBase
+get_user_info	app/services/user/oauth_third/auth_github.py	/^    async def get_user_info(self):$/;"	m	class:OAuthGITHUB
+github_check	app/businesses/user/oauth_github.py	/^    async def github_check(self, request_code):$/;"	m	class:GithubCheckBus
+headers	app/handlers/base/base_handler.py	/^    def headers(self):$/;"	m	class:BaseHandler
+include	app/routers.py	/^def include(module):$/;"	f
+inspect	app/utils/decoraters.py	/^import inspect$/;"	i
+ioloop	run.py	/^import tornado.ioloop$/;"	i
+is_dict	app/utils/decoraters.py	/^from .helpers import dict_get, is_dict$/;"	i
+is_dict	app/utils/helpers.py	/^def is_dict(data: dict, key_flow: [str, list, tuple] = None) -> bool:$/;"	f
+item_filter	app/utils/helpers.py	/^def item_filter(dst, src):$/;"	f
+items_filter	app/utils/helpers.py	/^def items_filter(dst, src):$/;"	f
+join_time	app/models/user.py	/^    join_time = Column(String(64))$/;"	v	class:User
+json	app/services/svs_base.py	/^import json$/;"	i
+json	app/services/user/oauth_third/auth_github.py	/^import json$/;"	i
+load_settings	app/routers.py	/^def load_settings(mode):$/;"	f
+make_app	app/routers.py	/^def make_app():$/;"	f
+make_app	run.py	/^from app.routers import make_app$/;"	i
+make_request	app/services/svs_base.py	/^    def make_request(domain, path=None, query=None, body=None, headers=None, **kwargs):$/;"	m	class:BaseService
+multi	app/businesses/user/oauth_github.py	/^from tornado.gen import multi$/;"	i
+mysql_db	app/handlers/base/base_handler.py	/^    def mysql_db(self):$/;"	m	class:BaseHandler
+mysql_db	app/models/__init__.py	/^    def mysql_db(self):$/;"	m	class:DBServer
+nickname	app/models/user.py	/^    nickname = Column(String(64), nullable=False, unique=True)$/;"	v	class:User
+on_finish	app/handlers/base/base_handler.py	/^    def on_finish(self):$/;"	m	class:BaseHandler
+os	run.py	/^import os$/;"	i
+parse	app/services/svs_base.py	/^import urllib.parse$/;"	i
+parse	app/services/user/oauth_third/auth_github.py	/^import urllib.parse$/;"	i
+parse_response	app/services/svs_base.py	/^    def parse_response(response):$/;"	m	class:BaseService
+partial	app/test/test.py	/^from functools import wraps, partial$/;"	i
+partial	app/utils/decoraters.py	/^from functools import partial, wraps$/;"	i
+post	app/handlers/product/coupon/coupon_bind.py	/^    async def post(self):$/;"	m	class:CouponBindHandler
+post	app/handlers/user/oauth/oauth_github.py	/^    async def post(self):$/;"	m	class:GithubOauthHandler
+post	app/services/svs_base.py	/^    async def post(self, domain, path=None, query=None, method='POST', body=None, **kwargs):$/;"	m	class:BaseService
+prepare	app/handlers/base/base_handler.py	/^    def prepare(self):$/;"	m	class:BaseHandler
+prod_by_search_word_get	app/services/product/search.py	/^    async def prod_by_search_word_get(self, headers, query):$/;"	m	class:ProdSearchSVS
+random	app/services/user/oauth_third/auth_github.py	/^import random$/;"	i
+realname	app/models/user.py	/^    realname = Column(String(64), nullable=True)$/;"	v	class:User
+redis	app/models/__init__.py	/^import redis$/;"	i
+redis_db	app/handlers/base/base_handler.py	/^    def redis_db(self):$/;"	m	class:BaseHandler
+redis_db	app/models/__init__.py	/^    def redis_db(self):$/;"	m	class:DBServer
+render_data	app/handlers/base/base_handler.py	/^    def render_data(self, data, code='0', msg='success', chuck=None):$/;"	m	class:BaseHandler
+request	app/services/svs_base.py	/^import urllib.request$/;"	i
+request	app/services/user/oauth_third/auth_github.py	/^import urllib.request$/;"	i
+request_item_get	app/utils/helpers.py	/^def request_item_get(instance, need_args):$/;"	f
+service_off_comments_overview	app/utils/data_default.py	/^def service_off_comments_overview():$/;"	f
+service_off_fault_tolerant	app/utils/data_default.py	/^def service_off_fault_tolerant():$/;"	f
+service_off_is_save	app/utils/data_default.py	/^def service_off_is_save():$/;"	f
+service_off_model_info	app/utils/data_default.py	/^def service_off_model_info():$/;"	f
+service_off_sku_goods	app/utils/data_default.py	/^def service_off_sku_goods():$/;"	f
+sessionmaker	app/models/__init__.py	/^from sqlalchemy.orm import sessionmaker$/;"	i
+sex	app/models/user.py	/^    sex = Column(Enum('x', 'o'), nullable=True)$/;"	v	class:User
+str_compare	app/utils/helpers.py	/^def str_compare(*str_s, eq=True, ignore_case=False):$/;"	f
+sys	run.py	/^import sys$/;"	i
+test_type_assert	app/utils/decoraters.py	/^def test_type_assert(a, b, c):$/;"	f
+to_int	app/utils/helpers.py	/^def to_int(s, default=0, invalid_s_raise=False, base=10):$/;"	f
+tornado	app/routers.py	/^import tornado.web$/;"	i
+tornado	run.py	/^import tornado.ioloop$/;"	i
+type_assert	app/utils/decoraters.py	/^def type_assert(*ty_args, **ty_kwargs):$/;"	f
+uid	app/models/user.py	/^    uid = Column(Integer, primary_key=True, autoincrement=True)$/;"	v	class:User
+url_wrapper	app/routers.py	/^from app.utils.decoraters import url_wrapper$/;"	i
+url_wrapper	app/utils/decoraters.py	/^def url_wrapper(urls):$/;"	f
+urllib	app/services/svs_base.py	/^import urllib.parse$/;"	i
+urllib	app/services/svs_base.py	/^import urllib.request$/;"	i
+urllib	app/services/user/oauth_third/auth_github.py	/^import urllib.parse$/;"	i
+urllib	app/services/user/oauth_third/auth_github.py	/^import urllib.request$/;"	i
+urls	app/handlers/product/urls.py	/^urls = [$/;"	v
+urls	app/handlers/test/urls.py	/^urls = [$/;"	v
+urls	app/handlers/user/urls.py	/^urls = [$/;"	v
+web	app/routers.py	/^import tornado.web$/;"	i
+wrapper	app/utils/decoraters.py	/^    def wrapper(func):$/;"	f	function:type_assert
+wraps	app/test/test.py	/^from functools import wraps, partial$/;"	i
+wraps	app/utils/decoraters.py	/^from functools import partial, wraps$/;"	i

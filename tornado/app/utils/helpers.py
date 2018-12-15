@@ -257,7 +257,40 @@ def extract_dict_field(field_keys, src, default=''):
     return {key: src.get(key, default) for key in field_keys}
 
 
-if __name__ == '__main__':
+def dict2_pm_headers(src):
+    if isinstance(src, dict):
+        for k, v in src.items():
+            print('{}: {}'.format(k, v))
+
+
+class DataTree(dict):
+    def __init__(self, data, *args, **kwargs):
+        if isinstance(data, dict):
+            for k, v in data.items():
+                if isinstance(v, dict):
+                    kwargs[k] = DataTree(v)
+                else:
+                    kwargs[k] = v
+        super().__init__(*args, **kwargs)
+        self.__dict__ = self
+
+
+# if __name__ == '__main__':
+
+
+while True:
+    print('客服：', input('客户：').replace('?', '!').replace('吗', ''))
+
+
+    # a = {
+    #     'code': '0',
+    #     'msg': 'OK',
+    #     'data':
+    #         {'result': {
+    #             'hello': [1, 2, 3]
+    #         }}}
+    # dt = DataTree(data=a)
+    # print('code: ', dt.code, 'data: ', dt.data)
     # pass
     # a = {'a': [{'c': [{'d': ''}], 'e': 'e'}], 'b': 2, 'B': {'bb': ''}}
     # b = {'a': [{'c': [{'d': 'adf'}, {'d': 'DDD'}], 'e': 'EEE'}], 'b': '', 'B': {'bb': 123}}
@@ -277,13 +310,7 @@ if __name__ == '__main__':
     # print(dd)
     # import timeit
     # print(timeit.Timer(lambda: items_filter(a, b)).timeit(10**5))
-    aa = {'a': 1, 'b': '1', 'c': []}
-    aaa = ['a', 'b', 'c']
-    bb = {'a': 10, 'B': '', 'c': [10], 'd': 100}
-
-    print(extract_dict_field(aa, bb, default='test'))
-    print()
-
-
-
-
+    # aa = {'a': 1, 'b': '1', 'c': []}
+    # aaa = ['a', 'b', 'c']
+    # bb = {'a': 10, 'B': '', 'c': [10], 'd': 100}
+    # print(extract_dict_field(aa, bb, default='test'))
