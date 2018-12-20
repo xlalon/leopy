@@ -73,7 +73,7 @@ def dict_get(data, key_flow, *, default=None):
     try:
         for key in key_flow:
             data = data.get(key)
-    except (TypeError, AttributeError):
+    except AttributeError:
         return default
     else:
         return data
@@ -275,43 +275,14 @@ class DataTree(dict):
         self.__dict__ = self
 
 
-# if __name__ == '__main__':
-
-
-while True:
-    # AI核心代码, 估值一个亿
-    print('孙悟空：', input('猪八戒：').split(',')[-1].replace('?', '!').replace('吗', ''))
-
-
-    # a = {
-    #     'code': '0',
-    #     'msg': 'OK',
-    #     'data':
-    #         {'result': {
-    #             'hello': [1, 2, 3]
-    #         }}}
-    # dt = DataTree(data=a)
-    # print('code: ', dt.code, 'data: ', dt.data)
-    # pass
-    # a = {'a': [{'c': [{'d': ''}], 'e': 'e'}], 'b': 2, 'B': {'bb': ''}}
-    # b = {'a': [{'c': [{'d': 'adf'}, {'d': 'DDD'}], 'e': 'EEE'}], 'b': '', 'B': {'bb': 123}}
-    # c = [{'a': [{'b': ''}], 'bb': 'BB'}]
-    # d = [{'a': [{'b': 'BBB'}], 'BB': 123}, {'a': [{'b': 'CCC'}]}]
-    # e = {'a': [{'b': ''}], 'c': '', 'd': 'D'}
-    # f = {'a': [{'b': 'BB'}, {'b': 'BBB'}], 'c': 'CC'}
-    # g = {'a': [{'b': '', 'c': 'C'}]}
-    # h = [{'a': [{'b': 'BB'}]}, {'a': [{'b': 'BBB'}]}]
-    # ee = items_filter(g, h)
-    # aa = items_filter(a, b)
-    # dd = items_filter(c, d)
-    # bb = items_filter(e, f)
-    # print(aa)
-    # print(bb)
-    # print(ee)
-    # print(dd)
-    # import timeit
-    # print(timeit.Timer(lambda: items_filter(a, b)).timeit(10**5))
-    # aa = {'a': 1, 'b': '1', 'c': []}
-    # aaa = ['a', 'b', 'c']
-    # bb = {'a': 10, 'B': '', 'c': [10], 'd': 100}
-    # print(extract_dict_field(aa, bb, default='test'))
+if __name__ == '__main__':
+    a = {
+        'code': '0',
+        'msg': 'OK',
+        'data':
+            {'result': {
+                'hello': [1, 2, 3]
+            }}}
+    dt = DataTree(data=a)
+    print('code:', dt.code, 'data:', dt.data)
+    print(dt.data.result.hello)

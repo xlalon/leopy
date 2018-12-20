@@ -53,7 +53,7 @@ class BaseHandler(RequestHandler):
     def get_current_user(self):
         return {'username': 'Leo', 'sex': 'man'}
 
-    def render_data(self, data, code='0', msg='success', chuck=None):
+    def render_data(self, data=None, code='0', msg='success', chuck=None):
         self._output_headers()
         if isinstance(chuck, dict) and all((key in chuck.keys()) for key in ('code', 'msg', 'info')):
             self.write(chuck)
