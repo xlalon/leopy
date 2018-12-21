@@ -3,10 +3,10 @@
 import json
 import urllib.parse
 from app.routers import make_app
-from tornado.testing import AsyncHTTPTestCase, LogTrapTestCase
+from tornado.testing import AsyncHTTPTestCase
 
 
-class BaseTestCase(AsyncHTTPTestCase, LogTrapTestCase):
+class BaseTestCase(AsyncHTTPTestCase):
     def setUp(self):
         super().setUp()
 
