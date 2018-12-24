@@ -276,13 +276,14 @@ class DataTree(dict):
 
 
 if __name__ == '__main__':
-    a = {
-        'code': '0',
-        'msg': 'OK',
-        'data':
-            {'result': {
-                'hello': [1, 2, 3]
-            }}}
-    dt = DataTree(data=a)
-    print('code:', dt.code, 'data:', dt.data)
-    print(dt.data.result.hello)
+    pass
+    # a = {
+    #     'code': '0',
+    #     'msg': 'OK',
+    #     'data':
+    #         {'result': {
+    #             'hello': [1, 2, 3]
+    #         }}}
+    # dt = DataTree(data=a)
+    # print('code:', dt.code, 'data:', dt.data)
+    # print(dt.data.result.hello)

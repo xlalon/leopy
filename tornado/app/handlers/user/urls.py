@@ -7,4 +7,8 @@ urls = [
     (r'oauth/github_login', GithubOauthHandler),
     # github登录回调
     (r'oauth/github_check', GithubOauthHandler),
+    # common_register
+    (r'oauth/account_register', AccountRegisterHandler),
+    # common_login
+    (r'oauth/common_login', CommonLoginHandler),
 ]

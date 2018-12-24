@@ -2,7 +2,7 @@
 
 from datetime import datetime
 from tornado.web import RequestHandler
-from app.models import DBServer
+from app.models import mysql_db, redis_db
 from config import Config
 
 
@@ -20,12 +20,12 @@ class BaseHandler(RequestHandler):
 
     @property
     def mysql_db(self):
-        self.__mysql_session = DBServer().mysql_db()
+        self.__mysql_session = mysql_db
         return self.__mysql_session
 
     @property
     def redis_db(self):
-        self.__redis_session = DBServer().redis_db()
+        self.__redis_session = redis_db
         return self.__redis_session
 
     def prepare(self):

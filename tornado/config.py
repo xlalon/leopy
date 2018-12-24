@@ -7,11 +7,15 @@ class _CodeConfig:
     # 比如`404` 为 0100（4）0100（04）
     CODE_PAGE_NOT_FOUND = '01000100'
     CODE_GITHUB_OAUTH_FAIL = '01000001'
+    CODE_ACCOUNT_EXIST = '01000011'
+    CODE_ACCOUNT_WRONG = '01000001'
 
 
 class _MSGConfig:
     MSG_OK = 'success'
     MSG_PAGE_NOT_FOUND = 'error! page not found.'
+    MSG_ACCOUNT_EXIST = 'The email or nickname has been registered, please change another!'
+    MSG_ACCOUNT_WRONG = 'Your email or password not right, please login again!'
 
 
 class _DBConfig:
@@ -34,5 +38,6 @@ class _OauthConfig:
 
 
 class Config(_CodeConfig, _MSGConfig, _DBConfig, _OauthConfig):
+    secret_key = "leo's secret key, no one can guess it!"
     domain = 'http://api.shetest18.cn'
     pass

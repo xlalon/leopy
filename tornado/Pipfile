@@ -17,6 +17,7 @@ python-oauth2 = "*"
 urllib = "*"
 urllib2 = "*"
 urllib3 = "*"
+itsdangerous = "*"
 
 [requires]
 python_version = "3.6"
