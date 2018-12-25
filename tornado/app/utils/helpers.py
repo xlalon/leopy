@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-def request_item_get(instance, need_args):
+def req_get(instance, need_args):
     """
     [In]:  request_kwargs(self, need_args=('token', 'uid'))
     [Out]: {'token': '171542133783_5bcd34f6561443.97165732_95f2603f0b9cf82a748cd599d55be3a214a1742b', 'uid': 0}
@@ -44,7 +44,7 @@ def is_dict(data: dict, key_flow: [str, list, tuple] = None) -> bool:
     try:
         for key in key_flow:
             data = data.get(key)
-    except (TypeError, AttributeError):
+    except AttributeError:
         return False
     else:
         return isinstance(data, dict)
@@ -56,17 +56,11 @@ def dict_get(data, key_flow, *, default=None):
     :param data: 原始数据
     :param key_flow: 想要获取数据的依次序的key
     :param default: 没有获取到值返回默认值
-    [In]:  dict_get([], 'a')                   # 应用于南京返回的data结构不是dict(code不为0的时候)
-    [Out]: None
     [In]:  dict_get(None, 'a', default='123')
     [Out]: '123'
     [In]:  data = {'a': {'b': {'c': {'d': 1}}}}
-    [In]:  dict_get(data, key_flow='a')
-    [Out]: {'b': {'c': {'d': 1}}}
     [In]:  dict_get(data, key_flow=['a', 'b', 'c', 'd'])
     [Out]: 1
-    [In]:  dict_get(data, key_flow=['a', 'c', 'd'],  default='123')
-    [Out]: '123'
     """
     if isinstance(key_flow, str):
         key_flow = [key_flow]
@@ -79,7 +73,7 @@ def dict_get(data, key_flow, *, default=None):
         return data
 
 
-def drop_invalid_dict_items(data, *, drop_key=None, drop_value=float('inf')):
+def drop_dict_items(data, *, drop_key=None, drop_value=float('inf')):
     """
     返回一个过滤字典中不需要的键值对（KEY或者VALUE）的新字典结构
     注意： 默认会删除值为float('inf')的键值对, 这个值基本不用
@@ -109,27 +103,26 @@ def drop_invalid_dict_items(data, *, drop_key=None, drop_value=float('inf')):
     return data
 
 
-def to_int(s, default=0, invalid_s_raise=False, base=10):
+def to_int(s, dft=0, e_raise=False, base=10):
     """
-    字符串转换成整型，对于不能转换的返回default指定的数据
-    :param s: 需要转换的字符串
-    :param base: 多少进制，默认是10进制。如果是16进制，可以写0x或者0X
-    :param default: 字符串不能转换成整形默认返回值
-    :param invalid_s_raise: 不可转换时， 该函数是否抛出异常
-    [In]:  to_int('10')
+     对象转换成整型，对于不能转换的返回default指定的数据
+    :param s: 需要转换的对象
+    :param base: 多少进制，默认是10进制
+    :param dft: 对象不能转换成整形默认返回值
+    :param e_raise: 当不可转换为整形时， 该函数是否抛出异常， 默认不抛出异常，并返回dft值
+    [In]:  to_int('10.0')
     [Out]: 10
-    [In]:  to_int('asd')
-    [Out]: 0
-    [In]:  to_int('asd', invalid_s_raise=True)
-    [Out]: ValueError: to_int argument 'asd' cannot trans to int
+    [In]:  to_int('asd', dft=10)
+    [Out]: 10
+    [In]:  to_int(None, e_raise=True)
+    [Out]: ValueError: to_int cannot trans `None` to int
     """
-    if isinstance(s, str) and s.isdigit():
-        return int(s, base=base)
-    else:
-        # 添加 invalid_s_raise为了兼容以前的功能（报错直接返回 0）
-        if invalid_s_raise:
-            raise ValueError("to_int argument '{}' cannot trans to int".format(s))
-        return default
+    try:
+        return int(str(int(float(str(s)))), base=base)
+    except ValueError:
+        if e_raise is True:
+            raise ValueError("to_int cannot trans `{}` to int".format(s))
+        return dft
 
 
 def str_compare(*str_s, eq=True, ignore_case=False):
@@ -257,7 +250,7 @@ def extract_dict_field(field_keys, src, default=''):
     return {key: src.get(key, default) for key in field_keys}
 
 
-def dict2_pm_headers(src):
+def dict2_hds(src):
     if isinstance(src, dict):
         for k, v in src.items():
             print('{}: {}'.format(k, v))
