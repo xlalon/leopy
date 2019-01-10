@@ -4,20 +4,14 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-ipython = "*"
-v = {editable = true,version = "*"}
 
 [packages]
-tornado = "==4.5.2"
+tornado = "*"
 pymysql = "*"
-requests = "*"
-redis = "*"
 sqlalchemy = "*"
-python-oauth2 = "*"
-urllib = "*"
-urllib2 = "*"
-urllib3 = "*"
 itsdangerous = "*"
+passlib = "*"
+pytz = "*"
 
 [requires]
 python_version = "3.6"

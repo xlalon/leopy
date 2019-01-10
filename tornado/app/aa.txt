@@ -1,0 +1,214 @@
+'language' => [
+        'il' => array(
+        	'he'=>'he',
+			'en'=>'en-ph'
+		),
+        'mil' => array(
+			'he'=>'he',
+			'en'=>'en-ph'
+		),
+        'andshil' => array(
+			'he'=>'he',
+			'en'=>'en-ph'
+		),
+        'iosshil' => array(
+			'he'=>'he',
+			'en'=>'en-ph'
+		),
+		'se' => array(
+			'sv'=>'sv',
+			'en'=>'en-ie'
+		),
+		'mse' => array(
+			'sv'=>'sv',
+			'en'=>'en-ie'
+		),
+		'andshse' => array(
+			'sv'=>'sv',
+			'en'=>'en-ie'
+		),
+		'iosshse' => array(
+			'sv'=>'sv',
+			'en'=>'en-ie'
+		),
+		'ca' => array(
+			'en'=>'en-ca',
+			'fr'=>'fr-ca'
+		),
+		'mca' => array(
+			'en'=>'en-ca',
+			'fr'=>'fr-ca'
+		),
+		'andshca' => array(
+			'en'=>'en-ca',
+			'fr'=>'fr-ca'
+		),
+		'iosshca' => array(
+			'en'=>'en-ca',
+			'fr'=>'fr-ca'
+		),
+		'th' => array(
+			'th' => 'th',
+			'en' => 'en-us'
+		),
+		'mth' => array(
+			'th' => 'th',
+			'en' => 'en-us'
+		),
+		'andshth' => array(
+			'th' => 'th',
+			'en' => 'en-us'
+		),
+		'iosshth' => array(
+			'th' => 'th',
+			'en' => 'en-us'
+		),
+		'id' => array(
+			'id' => 'id',
+			'en' => 'en-us'
+		),
+		'mid' => array(
+			'id' => 'id',
+			'en' => 'en-us'
+		),
+        'andshid' => array(
+			'id'=>'id',
+			'en'=>'en-us'
+		),
+        'iosshid' =>array(
+			'id'=>'id',
+			'en'=>'en-us'
+		),
+        'nl' => 'nl',
+        'mnl' => 'nl',
+        'andshnl' => 'nl',
+        'iosshnl' => 'nl',
+        'hk' => 'zh-cn',
+        'mhk' => 'zh-cn',
+        'andshhk' => 'zh-cn',
+        'iosshhk' => 'zh-cn',
+        'tr' => 'tr',
+        'mtr' => 'tr',
+        'andshtr' => 'tr',
+        'iosshtr' => 'tr',
+        'vn' => 'vi',
+        'mvn' => 'vi',
+        'andshvn' => 'vi',
+        'iosshvn' => 'vi',
+        'br' => 'pt-br',
+        'mbr' => 'pt-br',
+        'andshbr' => 'pt-br',
+        'iosshbr' => 'pt-br',
+        'mit' => 'it',
+        'mru' => 'ru',
+        'www' => "en-us",
+        'm' => "en-us",
+        'iosshother' => "en-us",
+        'andshother' => "en-us",
+        'us' => "en-nz",
+        'mus' => "en-nz",
+        'iosshus' => "en-nz",
+        'andshus' => 'en-nz',
+        'sus'=> 'en-sg',
+		'sns'=> 'en-sg',
+		'msns'=> 'en-sg',
+		'msus'=> 'en-sg',
+		'seu'=> 'en-sg',
+		'mseu'=> 'en-sg',
+        'uk'=> 'en-gb',
+        'muk'=> 'en-gb',
+        'iosshgb'=> 'en-gb',
+        'andshgb'=> 'en-gb',
+        'in'=>  'en-in',
+        'min'=> 'en-in',
+        'iosshin' => 'en-in',
+        'andshin'=> 'en-in',
+        'au'=> 'en-au',
+        'mau'=> 'en-au',
+        'iosshau'=> 'en-au',
+        'andshau'=> 'en-au',
+        'ar'=> 'ar',
+        'mar'=> 'ar',
+        'iossheg'=> 'ar',
+        'andsheg'=> 'ar',
+        'iosshsa'=> 'ar',
+        'andshsa'=> 'ar',
+        'iosshkw'=> 'ar',
+        'andshkw'=> 'ar',
+        'iosshae'=> array(
+			'ar' => 'ar',
+			'en' => 'en-us'
+		),
+        'andshae'=> array(
+			'ar' => 'ar',
+			'en' => 'en-us'
+		),
+        'iosshqa'=> 'ar',
+        'andshqa'=> 'ar',
+        'iosshom'=> 'ar',
+        'andshom'=> 'ar',
+        'iosshbh'=> 'ar',
+        'andshbh'=> 'ar',
+        'es'=> 'es',
+        'mes'=> 'es',
+        'iosshes'=> 'es',
+        'andshes'=> 'es',
+        'de'=> 'de',
+        'mde'=> 'de',
+        'iosshde'=> 'de',
+        'andshde'=> 'de',
+        'fr'=> 'fr',
+        'mfr'=> 'fr',
+        'iosshfr'=> 'fr',
+        'andshfr'=> 'fr',
+        'ru'=> 'ru',
+        'iosshru'=> 'ru',
+        'andshru'=> 'ru',
+        'it'=> 'it',
+        'iosshit'=> 'it',
+        'andshit'=> 'it',
+        'tw'=> 'zh-tw',
+        'mtw'=> 'zh-tw',
+        'iosshtw'=> 'zh-tw',
+        'andshtw'=> 'zh-tw',
+        'mx'=> 'es-419',
+        'mmx'=> 'es-419',
+        'iosshmx'=> 'es-419',
+        'andshmx'=> 'es-419',
+        'cl'=> 'es-419',
+        'mcl'=> 'es-419',
+        'andshcl'=> 'es-419',
+        'iosshcl'=> 'es-419',
+        'arg'=> 'es-419',
+        'marg'=> 'es-419',
+        'andsharg'=> 'es-419',
+        'iossharg'=> 'es-419',
+		'pwes' => 'es',
+		'pwin' => 'en-in',
+		'pwar' => 'ar',
+		'pwaren' => 'en-za',
+        'eur' => array (
+            'en' => 'en-us',
+            'fr' => 'fr',
+            'de' => 'de'
+        ),
+        'meur' => array (
+            'en' => 'en-us',
+            'fr' => 'fr',
+            'de' => 'de'
+        ),
+        'andsheur' => array (
+            'en' => 'en-us',
+            'fr' => 'fr',
+            'de' => 'de',
+        ),
+        'iossheur' => array (
+            'en' => 'en-us',
+            'fr' => 'fr',
+            'de' => 'de'
+        ),
+        'pwuk'=>'en-gb',
+        'pwus'=>'en-nz',
+        'pwfr'=>'fr',
+        'pwde'=>'de'
+    ],

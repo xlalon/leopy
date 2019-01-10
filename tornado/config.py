@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import os
 
 class _CodeConfig:
     CODE_OK = '0'
@@ -38,6 +39,10 @@ class _OauthConfig:
 
 
 class Config(_CodeConfig, _MSGConfig, _DBConfig, _OauthConfig):
+    PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
     secret_key = "leo's secret key, no one can guess it!"
     domain = 'http://api.shetest18.cn'
     pass
+
+
+del os

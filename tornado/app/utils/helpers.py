@@ -1,5 +1,15 @@
 # -*- coding: utf-8 -*-
 
+import ast
+import copy
+import os.path
+import re
+from datetime import datetime
+from pytz import timezone
+
+import config
+from pprint import pprint
+
 
 def req_get(instance, need_args):
     """
@@ -250,33 +260,68 @@ def extract_dict_field(field_keys, src, default=''):
     return {key: src.get(key, default) for key in field_keys}
 
 
+def dict_up4_dict(dst, src, dst_keys=None, src_keys=None, default=None):
+    result = copy.deepcopy(dst)
+    if dst_keys is None:
+        dst_keys = src.keys()
+    if src_keys is None:
+        result.update((k, src.get(k, default)) for k in dst_keys)
+    else:
+        result.update((k, src.get(src_k, default)) for k, src_k in zip(dst_keys, src_keys))
+    return result
+
+
 def dict2_hds(src):
     if isinstance(src, dict):
         for k, v in src.items():
             print('{}: {}'.format(k, v))
 
 
-class DataTree(dict):
+class ObjectDict(dict):
     def __init__(self, data, *args, **kwargs):
         if isinstance(data, dict):
             for k, v in data.items():
                 if isinstance(v, dict):
-                    kwargs[k] = DataTree(v)
+                    kwargs[k] = ObjectDict(v)
                 else:
                     kwargs[k] = v
         super().__init__(*args, **kwargs)
         self.__dict__ = self
 
 
+def str2_timestamp(dt_str, dt_fmt='%Y-%m-%d %H:%M:%S', tz=None):
+    """字符串时间转换成时间戳，默认提供字符串的格式为：日期 时间(2018-12-28 12:24:36)，
+    如果字符串只有日期部分，但是格式为%Y-%m-%d则不用另外提供信息，其他格式则提供格式dt_fmt, 如'%Y-%d-%m %H:%M'。
+    默认字符串时间是本地时间，可指定字符串的时区信息， tz如 'UTC', 'Etc/GMT-7'
+    """
+    dt_tuple = datetime.strptime(dt_str, dt_fmt).timetuple()[:6]
+    dt = datetime(*dt_tuple, tzinfo=timezone(tz)) if tz else datetime(*dt_tuple)
+    return int(dt.timestamp())
+
+
+def timestamp2_str(ts, fmt='%Y-%m-%d %H:%M:%S', tz=None):
+    """时间戳转换成字符串, 默认转换格式为: 日期 时间(2018-12-28 12:24:36)。
+     如果只需要日期，可以fmt='date', 如果只需要时间，可以fmt='time', 也可以自定义转换格式。
+     默认转换成本地时间，可转换成指定时区时间。 tz如 'UTC', 'Etc/GMT-7'
+    """
+    fmt = {'date': '%Y-%m-%d', 'time': '%H:%M:%S'}.get(fmt, fmt)
+    ts_tz = (float(ts), timezone(tz)) if tz else (float(ts),)
+    return datetime.fromtimestamp(*ts_tz).strftime(fmt)
+
+
+def analysis_aa():
+    filename = os.path.join(config.Config.PROJECT_PATH, 'app/aa.txt')
+    with open(filename, 'rb') as aa:
+        aa_txt = aa.read().decode()
+        aa_txt = re.split('=>', aa_txt, maxsplit=1)[1]
+        aa_txt = aa_txt.replace('[', '{').replace(']', '}').replace(' ', '')
+        aa_txt = aa_txt.replace('=>array(', ': {').replace(')', '}')
+        aa_txt = aa_txt.replace('=>', ': ')
+        aa_txt = aa_txt.replace('\n', '').replace('\t', '')
+        aa_txt = ast.literal_eval(aa_txt)[0]
+        aa_txt_r = {k: v for k, v in aa_txt.items() if k.startswith('ios') or k.startswith('and')}
+        pprint(aa_txt_r)
+
+
 if __name__ == '__main__':
     pass
-    # a = {
-    #     'code': '0',
-    #     'msg': 'OK',
-    #     'data':
-    #         {'result': {
-    #             'hello': [1, 2, 3]
-    #         }}}
-    # dt = DataTree(data=a)
-    # print('code:', dt.code, 'data:', dt.data)
-    # print(dt.data.result.hello)
