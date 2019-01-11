@@ -91,34 +91,27 @@ def drop_dict_items(data, *, drop_key=None, drop_value=float('inf')):
     :param drop_key: 指定需要删除的key的键值对, 可以为单个key, 也可以为一个list, tuple, set, dict(只删除相同键)
     :param drop_value: 指定需要删除的value的键值对
     [In]:  a = {'a': 1, 'b': [2], 'c': '', 'd': 0, 'e': -1, 'f': [], 'g': None, 10: 12}
-    [In]:  drop_invalid_dict_items(a, drop_key='a', drop_value='')
+    [In]:  drop_dict_items(a, drop_key='a', drop_value='')
     [Out]:  {'b': [2], 'd': 0, 'e': -1, 'f': [], 'g': None, 10: 12}
-    [In]:  drop_invalid_dict_items(a, drop_key=['a', 'b'], drop_value=['', None, [], 12])
+    [In]:  drop_dict_items(a, drop_key=['a', 'b'], drop_value=['', None, [], 12])
     [Out]: {'d': 0, 'e': -1}
     """
     if not isinstance(data, dict):
-        raise TypeError("drop_invalid_dict_items arguments data"
-                        " only support dict type, got {}".format(type(data).__name__))
-    if drop_value in ['', None, 0, [], {}, set(), tuple(), float('inf')] or isinstance(drop_value, (str, int, float)):
+        raise TypeError("drop_dict_items arg data only support dict type, got {}".format(type(data).__name__))
+    if drop_value in [None, [], {}, set(), tuple()] or isinstance(drop_value, (str, int, float)):
         drop_value = [drop_value]
+    # 元组特殊，要小心
+    if not isinstance(drop_key, (list, tuple, set, dict)):
+        drop_key = [drop_key]
     # 过滤值为指定value的键值对
-    data = {k: v for k, v in data.items() if v not in drop_value}
-    # 删除指定key键值对
-    if drop_key:
-        if not isinstance(drop_key, (list, tuple, set, dict)):
-            drop_key = [drop_key]
-        for k in drop_key:
-            # 加入返回默认值是为了pop不报KeyError
-            data.pop(k, None)
-    return data
+    return dict((k, v) for k, v in data.items() if v not in drop_value if k not in drop_key)
 
 
 def to_int(s, dft=0, e_raise=False, base=10):
-    """
-     对象转换成整型，对于不能转换的返回default指定的数据
-    :param s: 需要转换的对象
-    :param base: 多少进制，默认是10进制
-    :param dft: 对象不能转换成整形默认返回值
+    """对象转换成整型，对于不能转换的返回dft
+    :param s:    需要转换的对象
+    :param base: 进制，默认是10进制
+    :param dft:  对象不能转换成整形默认返回值
     :param e_raise: 当不可转换为整形时， 该函数是否抛出异常， 默认不抛出异常，并返回dft值
     [In]:  to_int('10.0')
     [Out]: 10
@@ -135,71 +128,30 @@ def to_int(s, dft=0, e_raise=False, base=10):
         return dft
 
 
-def str_compare(*str_s, eq=True, ignore_case=False):
+def str_cmp(*str_s, eq=True, ignore_case=False):
     """
     :param str_s: 待比较的字符串
     :param eq: True/False 返回待比较的字符串是否相等
     :param ignore_case: True/False 待比较的字符串是否忽悠大小写
     :return: True/False
-    [In]:  str_compare('a', 'A')
+    [In]:  str_cmp('a', 'A')
     [Out]: False
-    [In]:  str_compare('a', 'A', ignore_case=True)
+    [In]:  str_cmp('a', 'A', ignore_case=True)
     [Out]: True
-    [In]:  str_compare('a', 'A', eq=False)
+    [In]:  str_cmp('a', 'A', eq=False)
     [Out]: True
-    [In]:  str_compare('a', 'a', 'A', ignore_case=True)
+    [In]:  str_cmp('a', 'a', 'A', ignore_case=True)
     [Out]: True
     """
     if len(str_s) < 2:
-        raise ValueError('str_compare need at least two strings to compare')
+        raise ValueError('str_cmp need at least two strings to compare')
     if not all(isinstance(str_, str) for str_ in str_s):
-        raise TypeError('str_compare only support str type to compare')
+        raise TypeError('str_cmp only support str type to compare')
     if ignore_case is True:
         str_s = (str_.lower() for str_ in str_s)
     if eq is False:
         return len(set(str_s)) >= 2
     return len(set(str_s)) == 1
-
-
-def item_filter(dst, src):
-    """
-    数据过滤, 并返回 dst
-    :param dst    目的数据(dict/[dict])
-    :param src     源数据  (dict/[dict, dict, dict])
-    当目的数据最外层为字典时， 源数据最外层必须为一个字典
-    当目的数据最外层为列表时， 源数据最外层必须为一个列表
-    若源数据中存在目的数据中键的值，则获取此值，若不存在或者不为真，则取原来的值
-    [In]:  a = {'a': [{'b': ''}], 'c': '', 'd': 'D'}
-    [In]:  b = {'a': [{'b': 'BB'}, {'b': 'BBB'}], 'c': 'CC'}
-    [In]:  item_filter(a, b)
-    [In]:  print(a)
-    [Out]: {'a': [{'b': 'BB'}, {'b': 'BBB'}], 'c': 'CC', 'd': 'D'}
-    [In]:  c =[{'a': [{'b': '', 'c': 'C'}]}]
-    [In]:  d = [{'a': [{'b': 'BB'}]}, {'a': [{'b': 'BBB'}]}]
-    [In]:  print(c)
-    [In]:  item_filter(c, d)
-    [Out]: [{'a': [{'b': 'BB', 'c': 'C'}]}, {'a': [{'b': 'BBB', 'c': 'C'}]}]
-    """
-    assert type(dst) == type(src), 'item_filter args must be the same type, got {} and {}'.format(
-        type(dst).__name__, type(src).__name__)
-
-    if isinstance(dst, list) and isinstance(src, list):
-        src_len = len(src)
-        dst.extend([{k: v for k, v in dst[0].items()} for _ in range(src_len-1)])
-        for i in range(src_len):
-            item_filter(dst[i], src[i])
-        return
-
-    for key, value in dst.items():
-        if not isinstance(value, (dict, list)) and isinstance(src, dict):
-            dst[key] = src.get(key, value) or value
-        elif isinstance(value, dict) and isinstance(src, dict):
-            item_filter(value, src.get(key))
-        elif isinstance(value, list) and isinstance(src.get(key), list):
-            src_len = len(src.get(key))
-            dst[key] = [{k: v for k, v in value[0].items()} for _ in range(src_len)]
-            for i in range(src_len):
-                item_filter(dst[key][i], src.get(key)[i])
 
 
 def items_filter(dst, src):
@@ -261,13 +213,29 @@ def extract_dict_field(field_keys, src, default=''):
 
 
 def dict_up4_dict(dst, src, dst_keys=None, src_keys=None, default=None):
+    """从src中更新到dst，返回一个`新的字典`(不影响原来的数据)
+    :param dst          需要更新的字典
+    :param src          源字典
+    :param dst_keys     dst需要更新的key（列表/元组）
+    :param src_keys     src中的key（列表/元组）
+    :param default      无存在值返回的默认值
+    若不提供dst_keys, 且不提供src_keys, 默认更新src全部键值对到dst
+    src_keys为list/tuple时, dst_keys和src_keys更新的键名称一一对应
+    src_keys 为dict时, 键名称从src_keys键更新成src_keys值
+    """
     result = copy.deepcopy(dst)
     if dst_keys is None:
         dst_keys = src.keys()
     if src_keys is None:
         result.update((k, src.get(k, default)) for k in dst_keys)
     else:
-        result.update((k, src.get(src_k, default)) for k, src_k in zip(dst_keys, src_keys))
+        if isinstance(src_keys, (list, tuple)):
+            result.update((k, src.get(src_k, default)) for k, src_k in zip(dst_keys, src_keys))
+        # src_keys为dict时, 更换指定key名称, key，value为更换前/后的键名
+        elif isinstance(src_keys, dict):
+            for old_k, new_k in src_keys.items():
+                result[new_k] = src.get(old_k, default)
+                result.pop(old_k, None)
     return result
 
 
@@ -289,7 +257,7 @@ class ObjectDict(dict):
         self.__dict__ = self
 
 
-def str2_timestamp(dt_str, dt_fmt='%Y-%m-%d %H:%M:%S', tz=None):
+def str2_ts(dt_str, dt_fmt='%Y-%m-%d %H:%M:%S', tz=None):
     """字符串时间转换成时间戳，默认提供字符串的格式为：日期 时间(2018-12-28 12:24:36)，
     如果字符串只有日期部分，但是格式为%Y-%m-%d则不用另外提供信息，其他格式则提供格式dt_fmt, 如'%Y-%d-%m %H:%M'。
     默认字符串时间是本地时间，可指定字符串的时区信息， tz如 'UTC', 'Etc/GMT-7'
@@ -299,7 +267,7 @@ def str2_timestamp(dt_str, dt_fmt='%Y-%m-%d %H:%M:%S', tz=None):
     return int(dt.timestamp())
 
 
-def timestamp2_str(ts, fmt='%Y-%m-%d %H:%M:%S', tz=None):
+def ts2_str(ts, fmt='%Y-%m-%d %H:%M:%S', tz=None):
     """时间戳转换成字符串, 默认转换格式为: 日期 时间(2018-12-28 12:24:36)。
      如果只需要日期，可以fmt='date', 如果只需要时间，可以fmt='time', 也可以自定义转换格式。
      默认转换成本地时间，可转换成指定时区时间。 tz如 'UTC', 'Etc/GMT-7'

@@ -12,6 +12,7 @@ sqlalchemy = "*"
 itsdangerous = "*"
 passlib = "*"
 pytz = "*"
+redis = "*"
 
 [requires]
 python_version = "3.6"
