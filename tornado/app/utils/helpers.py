@@ -76,7 +76,7 @@ def dict_get(data, key_flow, *, default=None):
         key_flow = [key_flow]
     try:
         for key in key_flow:
-            data = data.get(key)
+            data = data.get(key, default)
     except AttributeError:
         return default
     else:
@@ -291,5 +291,26 @@ def analysis_aa():
         pprint(aa_txt_r)
 
 
+def analysis_cart():
+    import csv
+    import re
+    filename = os.path.join(config.Config.PROJECT_PATH, 'app/cart_info_error.csv')
+    filename1 = os.path.join(config.Config.PROJECT_PATH, 'app/cart_info_error_memberIds.csv')
+
+    ids_s = set()
+    with open(filename, newline='') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            id_s = re.findall('memberId=(.*?);', row[1])
+            ids_s.add(id_s[0] if id_s and id_s[0].isdigit() else '')
+
+    ids_s.remove('')
+
+    with open(filename1, 'w') as f1:
+        f1.write('MemberIds\n')
+        for id_ in ids_s:
+            f1.write(id_ + '\n')
+
+
 if __name__ == '__main__':
-    pass
+    analysis_cart()

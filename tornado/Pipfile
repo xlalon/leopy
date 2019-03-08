@@ -13,6 +13,7 @@ itsdangerous = "*"
 passlib = "*"
 pytz = "*"
 redis = "*"
+celery = {extras = ["auth", "librabbitmq", "msgpack", "redis"],version = "*"}
 
 [requires]
 python_version = "3.6"
