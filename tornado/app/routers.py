@@ -21,4 +21,5 @@ def make_app():
         (r"/test/", include('app.handlers.test.urls')),
         (r"/user/", include('app.handlers.user.urls')),
         (r"/product/", include('app.handlers.product.urls')),
+        (r"/ticket/", include('app.handlers.ticket')),
     ]), **load_settings(mode='test'))
