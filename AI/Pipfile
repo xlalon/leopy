@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+ipytnon = "*"
+
+[packages]
+numpy = "*"
+pandas = "*"
+matplotlib = "*"
+ipython = "*"
+ipyhton = "*"
+fake-useragent = "*"
+twisted = "*"
+requests = "*"
+cssselect = "*"
+lxml = "*"
+
+[requires]
+python_version = "3.6"
