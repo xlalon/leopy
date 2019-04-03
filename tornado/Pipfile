@@ -15,6 +15,7 @@ pytz = "*"
 redis = "*"
 celery = {extras = ["auth", "librabbitmq", "msgpack", "redis"],version = "*"}
 fake-useragent = "*"
+pika = "*"
 
 [requires]
 python_version = "3.6"

@@ -131,31 +131,32 @@ def data_type_check(data, data_type):
 
 
 if __name__ == '__main__':
+    pass
     # test_type_assert(1, 2, 'a')
     # test_type_assert(1, 2, 3)
 
-    data_t = {
-        'key_a': {'v_a1': int, 'v_a2': str, 'v_a3': list, 'v_a4': dict},
-        'key_b': [
-            {'v_b5': {'v_b55': int}},
-            {'v_b6': [int, str]},
-            {'v_b7': [{'v_b77': int}]},
-        ]
-    }
-    data_d = {
-        'key_a': {'v_a1': None, 'v_a2': 2, 'v_a3': {}, 'v_a4': [4]},
-        'key_b': [
-            {'v_b5': {'v_b55': ''}},
-            {'v_b6': ['6', 7, 8]},
-            {'v_b7': [{'v_b77': 777}, {'v_b77': '666'}, {'v_b77': 555}]},
-        ]
-    }
-
-    data_type_check(data_d, data_t)
+    # data_t = {
+    #     'key_a': {'v_a1': int, 'v_a2': str, 'v_a3': list, 'v_a4': dict},
+    #     'key_b': [
+    #         {'v_b5': {'v_b55': int}},
+    #         {'v_b6': [int, str]},
+    #         {'v_b7': [{'v_b77': int}]},
+    #     ]
+    # }
+    # data_d = {
+    #     'key_a': {'v_a1': None, 'v_a2': 2, 'v_a3': {}, 'v_a4': [4]},
+    #     'key_b': [
+    #         {'v_b5': {'v_b55': ''}},
+    #         {'v_b6': ['6', 7, 8]},
+    #         {'v_b7': [{'v_b77': 777}, {'v_b77': '666'}, {'v_b77': 555}]},
+    #     ]
+    # }
+    #
+    # data_type_check(data_d, data_t)
     # data_type_check(data_d['key_a']['v_a3'], dict)
     # data_type_check(None, int)
-    data_type_check({}, int)
-    data_type_check('a', int)
+    # data_type_check({}, int)
+    # data_type_check('a', int)
     # data_type_check(['a', 22222], (str, str))
     # data_type_check([], (str, str))
 
