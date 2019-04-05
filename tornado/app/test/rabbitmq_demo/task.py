@@ -18,16 +18,23 @@ def send():
     conn = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
     chan = conn.channel()
 
+    # declare exchange name&type
+    chan.exchange_declare(exchange='direct_logs', exchange_type='direct')
     # declare queue name
-    chan.queue_declare(queue='leo')
+    # chan.queue_declare(queue='leo')
 
+    # declare a routing_key(queue name)
+    severity = sys.argv[1] if len(sys.argv) > 1 else 'info'
     # publish a message
-    message = ''.join(sys.argv[1:] or 'Hello RabbitMQ')
-    chan.basic_publish(exchange='',
-                       routing_key='leo',
+    message = ''.join(sys.argv[2:] or 'Hello RabbitMQ')
+    # when declare exchange,need named exchange, do not declare routing_key(means queue name)
+
+    chan.basic_publish(exchange='direct_logs',
+                       routing_key=severity,
                        body=message,
                        # message persistent
-                       properties=pika.BasicProperties(delivery_mode=2))
+                       # properties=pika.BasicProperties(delivery_mode=2)
+                       )
 
     print('[Sender] Sent message {}'.format(message))
     # gently close the connection
