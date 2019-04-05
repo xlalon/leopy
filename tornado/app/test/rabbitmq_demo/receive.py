@@ -19,7 +19,7 @@ def receive():
     conn = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
     chan = conn.channel()
 
-    chan.exchange_declare(exchange='direct_logs', exchange_type='direct')
+    chan.exchange_declare(exchange='topic_logs', exchange_type='topic')
     # declare queue name
     # chan.queue_declare(queue='leo')
     # queue name '' means a random queue
@@ -32,7 +32,7 @@ def receive():
         sys.stderr.write("Usage: %s [info] [warning] [error]\n" % sys.argv[0])
         sys.exit(1)
     for severity in severities:
-        chan.queue_bind(exchange='direct_logs', queue=queue_name, routing_key=severity)
+        chan.queue_bind(exchange='topic_logs', queue=queue_name, routing_key=severity)
 
     #  don't dispatch a new message to a worker until it has processed and acknowledged the previous one
     # chan.basic_qos(prefetch_count=1)

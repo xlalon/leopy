@@ -13,24 +13,35 @@ import pika
 import sys
 
 
+def fib(n):
+    a, b = 1, 0
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    for _ in range(1, n):
+        a, b = a+b, a
+    return a
+
+
 def send():
     # establish connection
     conn = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
     chan = conn.channel()
 
     # declare exchange name&type
-    chan.exchange_declare(exchange='direct_logs', exchange_type='direct')
+    chan.exchange_declare(exchange='topic_logs', exchange_type='topic')
     # declare queue name
     # chan.queue_declare(queue='leo')
 
     # declare a routing_key(queue name)
-    severity = sys.argv[1] if len(sys.argv) > 1 else 'info'
+    routing_key = sys.argv[1] if len(sys.argv) > 2 else 'anonymous.info'
     # publish a message
     message = ''.join(sys.argv[2:] or 'Hello RabbitMQ')
     # when declare exchange,need named exchange, do not declare routing_key(means queue name)
 
-    chan.basic_publish(exchange='direct_logs',
-                       routing_key=severity,
+    chan.basic_publish(exchange='topic_logs',
+                       routing_key=routing_key,
                        body=message,
                        # message persistent
                        # properties=pika.BasicProperties(delivery_mode=2)
