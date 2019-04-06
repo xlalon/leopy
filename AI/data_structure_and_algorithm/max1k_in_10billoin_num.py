@@ -26,13 +26,3 @@ if __name__ == '__main__':
 
     ccc(lst, num_n, rand_m)
     print('length_a_end: ', len(lst))
-    #
-    # with open('ten_billion.txt', 'w') as f:
-    #     i = 0
-    #     for _ in range(10 ** 12):
-    #         if i == 10:
-    #             f.write('\n')
-    #             i = 0
-    #         num = randint(0, 10**14)
-    #         f.write('{} '.format(num))
-    #         i += 1

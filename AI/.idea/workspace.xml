@@ -2,11 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b680e39-0e85-4e1d-98d5-082fb430e108" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/concurrence/thread_demo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crawler/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_structure_and_algorithm/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_structure_and_algorithm/is_search_bin_tree.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_structure_and_algorithm/sort_demo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/message_queue/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/AI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AI.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../django/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../django/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tornado/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tornado/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aaa.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_structure_and_algorithm/max1k_in_10billoin_num.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/message_queue/celery_demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/crawler/crawler_1_demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rabbitmq_demo/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/concurrence/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rabbitmq_demo/logs_from_rabbit.log" beforeDir="false" afterPath="$PROJECT_DIR$/message_queue/logs_from_rabbit.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rabbitmq_demo/rabbitmq_rpc_c.py" beforeDir="false" afterPath="$PROJECT_DIR$/message_queue/rabbitmq_rpc_c.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rabbitmq_demo/rabbitmq_rpc_s.py" beforeDir="false" afterPath="$PROJECT_DIR$/message_queue/rabbitmq_rpc_s.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rabbitmq_demo/receive.py" beforeDir="false" afterPath="$PROJECT_DIR$/message_queue/receive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rabbitmq_demo/task.py" beforeDir="false" afterPath="$PROJECT_DIR$/message_queue/task.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thread_demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yield_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/concurrence/yield_demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tornado/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Tornado/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,25 +36,107 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/AI$yield_demo.coverage" NAME="yield_demo Coverage Results" MODIFIED="1554176672427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/AI$is_search_bin_tree.coverage" NAME="is_search_bin_tree Coverage Results" MODIFIED="1554526050809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AI$helper.coverage" NAME="helper Coverage Results" MODIFIED="1552642761013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/AI$yield_demo.coverage" NAME="yield_demo Coverage Results" MODIFIED="1554176672427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/helper.py">
+        <entry file="file://$PROJECT_DIR$/message_queue/receive.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
+            <state relative-caret-position="253">
+              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+              <folding>
+                <element signature="e#217#228#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/message_queue/rabbitmq_rpc_s.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-166">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/message_queue/rabbitmq_rpc_c.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/message_queue/logs_from_rabbit.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/message_queue/celery_demo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_structure_and_algorithm/sort_demo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1495">
+              <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_structure_and_algorithm/max1k_in_10billoin_num.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <element signature="e#25#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_structure_and_algorithm/is_search_bin_tree.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crawler/crawler_1_demo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="478">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
+              <folding>
+                <element signature="e#23#42#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/yield_demo.py">
+        <entry file="file://$PROJECT_DIR$/concurrence/thread_demo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+            <state relative-caret-position="46">
+              <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -53,14 +156,26 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/helper.py" />
         <option value="$PROJECT_DIR$/yield_demo.py" />
+        <option value="$PROJECT_DIR$/thread_demo.py" />
+        <option value="$PROJECT_DIR$/sort_demo.py" />
+        <option value="$PROJECT_DIR$/helper.py" />
+        <option value="$PROJECT_DIR$/is_search_bin_tree.py" />
+        <option value="$PROJECT_DIR$/concurrence_program.py" />
+        <option value="$PROJECT_DIR$/concurrence/yield_demo.py" />
+        <option value="$PROJECT_DIR$/message_queue/receive.py" />
+        <option value="$PROJECT_DIR$/message_queue/rabbitmq_rpc_c.py" />
+        <option value="$PROJECT_DIR$/data_structure_and_algorithm/sort_demo.py" />
+        <option value="$PROJECT_DIR$/data_structure_and_algorithm/max1k_in_10billoin_num.py" />
+        <option value="$PROJECT_DIR$/concurrence/thread_demo.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds">
+    <option name="x" value="326" />
+    <option name="y" value="121" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -68,7 +183,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -76,18 +190,43 @@
               <item name="AI" type="b2602c69:ProjectViewProjectNode" />
               <item name="AI" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="AI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AI" type="462c0819:PsiDirectoryNode" />
+              <item name="concurrence" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AI" type="462c0819:PsiDirectoryNode" />
+              <item name="crawler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AI" type="462c0819:PsiDirectoryNode" />
+              <item name="data_structure_and_algorithm" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../venv3/lib/python3.6/site-packages/autopep8-1.4.3.dist-info" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/rabbitmq_demo" />
+      <recent name="$PROJECT_DIR$/concurrence" />
+      <recent name="$PROJECT_DIR$/crawler" />
+      <recent name="$PROJECT_DIR$/crawler_1_demo" />
+      <recent name="$PROJECT_DIR$/data_structure_and_algorithm" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -101,7 +240,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.yield_demo">
+  <component name="RunManager" selected="Python.is_search_bin_tree">
     <configuration name="helper" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AI" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -124,6 +263,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="is_search_bin_tree" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="AI" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_structure_and_algorithm/is_search_bin_tree.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="yield_demo" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AI" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -137,7 +298,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yield_demo.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/concurrence/yield_demo.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -148,6 +309,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.is_search_bin_tree" />
         <item itemvalue="Python.yield_demo" />
         <item itemvalue="Python.helper" />
       </list>
@@ -165,22 +327,23 @@
       <updated>1552642245191</updated>
       <workItem from="1552642247784" duration="929000" />
       <workItem from="1554176299742" duration="1383000" />
+      <workItem from="1554524809246" duration="1871000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2312000" />
+    <option name="totallyTimeSpent" value="4183000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="326" y="121" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.42444444" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32955974" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.42389938" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -189,7 +352,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.72578615" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -202,17 +365,109 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/helper.py">
+    <entry file="file://$PROJECT_DIR$/concurrence_program.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/concurrence/yield_demo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
+        <state relative-caret-position="138">
+          <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yield_demo.py">
+    <entry file="file://$PROJECT_DIR$/helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/message_queue/task.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#216#227#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/message_queue/receive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+          <folding>
+            <element signature="e#217#228#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/message_queue/rabbitmq_rpc_s.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-166">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/message_queue/rabbitmq_rpc_c.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/message_queue/logs_from_rabbit.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/message_queue/celery_demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_structure_and_algorithm/sort_demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1495">
+          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_structure_and_algorithm/max1k_in_10billoin_num.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#25#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_structure_and_algorithm/is_search_bin_tree.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crawler/crawler_1_demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#23#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/concurrence/thread_demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
         </state>
       </provider>
     </entry>

@@ -3,6 +3,8 @@ cssselect==1.0.3
 Django==2.2     
 Flask==1.0.2   
 gunicorn==19.9.0  
+autopep8==1.4.3
+fake-useragent==0.1.11
 ipython==7.4.0   
 itsdangerous==1.1.0   
 lxml==4.3.3   
@@ -15,6 +17,7 @@ pytz==2018.9
 requests==2.21.0  
 selenium==3.141.0 
 tornado==6.0.2   
+celery==4.3.0
 pika==1.0.0
 pymysql==0.9.3
 rabbitmq==0.2.0

@@ -14,19 +14,20 @@ import pika
 import time
 import sys
 
+
 def receive():
     # establish connection
     conn = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
     chan = conn.channel()
 
     chan.exchange_declare(exchange='topic_logs', exchange_type='topic')
-    # declare queue name
-    # chan.queue_declare(queue='leo')
-    # queue name '' means a random queue
-    # exclusive means when the chan closed, delete the queue
+    # declare message_queue name
+    # chan.queue_declare(message_queue='leo')
+    # message_queue name '' means a random message_queue
+    # exclusive means when the chan closed, delete the message_queue
     result = chan.queue_declare('', exclusive=True)
     queue_name = result.method.queue
-    # The messages will be lost if no queue is bound to the exchange yet
+    # The messages will be lost if no message_queue is bound to the exchange yet
     severities = sys.argv[1:]
     if not severities:
         sys.stderr.write("Usage: %s [info] [warning] [error]\n" % sys.argv[0])

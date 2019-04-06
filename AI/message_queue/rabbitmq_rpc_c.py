@@ -52,11 +52,3 @@ fib = FibRpcClient()
 print(" [x] Requesting fib(30)")
 response = fib.call(30)
 print(" [.] Got %r" % response)
-
-
-
-
-
-
-
-

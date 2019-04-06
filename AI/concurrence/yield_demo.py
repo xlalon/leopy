@@ -4,7 +4,7 @@ from collections import deque
 class ActorScheduler:
     def __init__(self):
         self._actors = { }          # Mapping of names to actors
-        self._msg_queue = deque()   # Message queue
+        self._msg_queue = deque()   # Message message_queue
 
     def new_actor(self, name, actor):
         '''

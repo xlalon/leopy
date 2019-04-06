@@ -31,14 +31,14 @@ def send():
 
     # declare exchange name&type
     chan.exchange_declare(exchange='topic_logs', exchange_type='topic')
-    # declare queue name
-    # chan.queue_declare(queue='leo')
+    # declare message_queue name
+    # chan.queue_declare(message_queue='leo')
 
-    # declare a routing_key(queue name)
+    # declare a routing_key(message_queue name)
     routing_key = sys.argv[1] if len(sys.argv) > 2 else 'anonymous.info'
     # publish a message
     message = ''.join(sys.argv[2:] or 'Hello RabbitMQ')
-    # when declare exchange,need named exchange, do not declare routing_key(means queue name)
+    # when declare exchange,need named exchange, do not declare routing_key(means message_queue name)
 
     chan.basic_publish(exchange='topic_logs',
                        routing_key=routing_key,
