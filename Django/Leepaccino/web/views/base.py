@@ -10,7 +10,6 @@ from passlib.hash import bcrypt
 from hashlib import sha1
 
 from Leepaccino.settings import SECRET_KEY
-from . import User
 from ..utils.exception import ArgumentNullException
 from ..utils.helper import ObjectDict
 
