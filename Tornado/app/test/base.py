@@ -4,6 +4,7 @@ import json
 import urllib.parse
 from app.routers import make_app
 from tornado.testing import AsyncHTTPTestCase
+from app.utils.helpers import ObjectDict
 
 
 class BaseTestCase(AsyncHTTPTestCase):
@@ -55,27 +56,6 @@ class BaseTestCase(AsyncHTTPTestCase):
         """
         from json import JSONDecodeError
         try:
-            return DataTree(data=json.loads(response.body))
+            return ObjectDict(data=json.loads(response.body))
         except JSONDecodeError:
             return None
-
-
-class DataTree(dict):
-    """
-    可以通过实例属性遍历的字典获取
-    data: nj获取到的转换成dict的数据
-    用法:
-    >>> dt = {'a': {'b': [1, 2]}}
-    >>> data = DataTree(dt)
-    >>> data.a.b
-    >>> [1, 2]
-    """
-    def __init__(self, data, *args, **kwargs):
-        if isinstance(data, dict):
-            for k, v in data.items():
-                if isinstance(v, dict):
-                    kwargs[k] = DataTree(v)
-                else:
-                    kwargs[k] = v
-        super().__init__(*args, **kwargs)
-        self.__dict__ = self

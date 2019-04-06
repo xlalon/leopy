@@ -96,67 +96,6 @@ def test_type_assert(a, b, c):
     print(a, b, c)
 
 
-TYPE = (str, int, float, list, set, dict, tuple, type(None), bool)
-
-
-def data_type_check(data, data_type):
-    def wrong_type_tip(data_, type_):
-        if not isinstance(data_, type_):
-            print('Item `{}` expect {},  got {}'.format(data_, type_.__name__,  type(data_).__name__))
-    try:
-        if data_type in TYPE:
-            wrong_type_tip(data, data_type)
-        elif isinstance(data_type, (list, tuple)):
-            for idx, item in enumerate(data_type):
-                if item in TYPE:
-                    wrong_type_tip(data[idx], item)
-        elif isinstance(data_type, dict):
-            for k, v in data_type.items():
-                if k not in data:
-                    print('Key `{}` not in {}'.format(k, data))
-                    continue
-                if v in TYPE:
-                    wrong_type_tip(data[k], v)
-                elif isinstance(v, dict):
-                    data_type_check(data[k], v)
-                elif isinstance(v, (list, tuple)):
-                    if len(v) == 1 and isinstance(v[0], dict):
-                        for item in data[k]:
-                            data_type_check(item, v[0])
-                    else:
-                        for idx, item in enumerate(v):
-                            data_type_check(data[k][idx], item)
-    except (KeyError, IndexError, TypeError) as e:
-        print('data_type_check failed: ', e)
-
-
 if __name__ == '__main__':
     pass
-    # test_type_assert(1, 2, 'a')
-    # test_type_assert(1, 2, 3)
-
-    # data_t = {
-    #     'key_a': {'v_a1': int, 'v_a2': str, 'v_a3': list, 'v_a4': dict},
-    #     'key_b': [
-    #         {'v_b5': {'v_b55': int}},
-    #         {'v_b6': [int, str]},
-    #         {'v_b7': [{'v_b77': int}]},
-    #     ]
-    # }
-    # data_d = {
-    #     'key_a': {'v_a1': None, 'v_a2': 2, 'v_a3': {}, 'v_a4': [4]},
-    #     'key_b': [
-    #         {'v_b5': {'v_b55': ''}},
-    #         {'v_b6': ['6', 7, 8]},
-    #         {'v_b7': [{'v_b77': 777}, {'v_b77': '666'}, {'v_b77': 555}]},
-    #     ]
-    # }
-    #
-    # data_type_check(data_d, data_t)
-    # data_type_check(data_d['key_a']['v_a3'], dict)
-    # data_type_check(None, int)
-    # data_type_check({}, int)
-    # data_type_check('a', int)
-    # data_type_check(['a', 22222], (str, str))
-    # data_type_check([], (str, str))
 

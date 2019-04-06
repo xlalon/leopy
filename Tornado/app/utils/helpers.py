@@ -1,35 +1,23 @@
 # -*- coding: utf-8 -*-
 
-import ast
 import copy
-import os.path
-import re
 from datetime import datetime
 from pytz import timezone
 
 import config
-from pprint import pprint
 
-
-def req_get(instance, need_args):
-    """
-    [In]:  request_kwargs(self, need_args=('token', 'uid'))
-    [Out]: {'token': '171542133783_5bcd34f6561443.97165732_95f2603f0b9cf82a748cd599d55be3a214a1742b', 'uid': 0}
-    """
-    # 请求全部属性
-    request_ = {attr_name: getattr(instance, attr_name) for attr_name in dir(instance)}
-    # 初始化需要的属性字段
-    result = {need_arg: '' for need_arg in need_args}
-    # 忽略大小写
-    need_args_lower = (arg.lower() for arg in need_args)
-    for attr_name, attr_value in request_.items():
-        # 忽略属性开始下划线
-        if isinstance(attr_name, str) and attr_name.startswith('_'):
-            attr_name = attr_name[1:]
-        attr_name = attr_name.lower()
-        if attr_name in need_args_lower:
-            result[attr_name] = attr_value
-    return result
+__all__ = ['to_int',
+           'is_dict',
+           'str_cmp',
+           'str2_ts',
+           'ts2_str',
+           'dict_get',
+           'ObjectDict',
+           'items_filter',
+           'dict_up4_dict',
+           'drop_dict_items',
+           'extract_dict_field'
+           ]
 
 
 def is_dict(data: dict, key_flow: [str, list, tuple] = None) -> bool:
@@ -239,12 +227,6 @@ def dict_up4_dict(dst, src, dst_keys=None, src_keys=None, default=None):
     return result
 
 
-def dict2_hds(src):
-    if isinstance(src, dict):
-        for k, v in src.items():
-            print('{}: {}'.format(k, v))
-
-
 class ObjectDict(dict):
     def __init__(self, data, *args, **kwargs):
         if isinstance(data, dict):
@@ -277,40 +259,38 @@ def ts2_str(ts, fmt='%Y-%m-%d %H:%M:%S', tz=None):
     return datetime.fromtimestamp(*ts_tz).strftime(fmt)
 
 
-def analysis_aa():
-    filename = os.path.join(config.Config.PROJECT_PATH, 'app/aa.txt')
-    with open(filename, 'rb') as aa:
-        aa_txt = aa.read().decode()
-        aa_txt = re.split('=>', aa_txt, maxsplit=1)[1]
-        aa_txt = aa_txt.replace('[', '{').replace(']', '}').replace(' ', '')
-        aa_txt = aa_txt.replace('=>array(', ': {').replace(')', '}')
-        aa_txt = aa_txt.replace('=>', ': ')
-        aa_txt = aa_txt.replace('\n', '').replace('\t', '')
-        aa_txt = ast.literal_eval(aa_txt)[0]
-        aa_txt_r = {k: v for k, v in aa_txt.items() if k.startswith('ios') or k.startswith('and')}
-        pprint(aa_txt_r)
+def data_type_check(data, data_type):
+    TYPE = (str, int, float, list, set, dict, tuple, type(None), bool)
 
-
-def analysis_cart():
-    import csv
-    import re
-    filename = os.path.join(config.Config.PROJECT_PATH, 'app/cart_info_error.csv')
-    filename1 = os.path.join(config.Config.PROJECT_PATH, 'app/cart_info_error_memberIds.csv')
-
-    ids_s = set()
-    with open(filename, newline='') as f:
-        reader = csv.reader(f)
-        for row in reader:
-            id_s = re.findall('memberId=(.*?);', row[1])
-            ids_s.add(id_s[0] if id_s and id_s[0].isdigit() else '')
-
-    ids_s.remove('')
-
-    with open(filename1, 'w') as f1:
-        f1.write('MemberIds\n')
-        for id_ in ids_s:
-            f1.write(id_ + '\n')
+    def wrong_type_tip(data_, type_):
+        if not isinstance(data_, type_):
+            print('Item `{}` expect {},  got {}'.format(data_, type_.__name__,  type(data_).__name__))
+    try:
+        if data_type in TYPE:
+            wrong_type_tip(data, data_type)
+        elif isinstance(data_type, (list, tuple)):
+            for idx, item in enumerate(data_type):
+                if item in TYPE:
+                    wrong_type_tip(data[idx], item)
+        elif isinstance(data_type, dict):
+            for k, v in data_type.items():
+                if k not in data:
+                    print('Key `{}` not in {}'.format(k, data))
+                    continue
+                if v in TYPE:
+                    wrong_type_tip(data[k], v)
+                elif isinstance(v, dict):
+                    data_type_check(data[k], v)
+                elif isinstance(v, (list, tuple)):
+                    if len(v) == 1 and isinstance(v[0], dict):
+                        for item in data[k]:
+                            data_type_check(item, v[0])
+                    else:
+                        for idx, item in enumerate(v):
+                            data_type_check(data[k][idx], item)
+    except (KeyError, IndexError, TypeError) as e:
+        print('data_type_check failed: ', e)
 
 
 if __name__ == '__main__':
-    analysis_cart()
+    pass

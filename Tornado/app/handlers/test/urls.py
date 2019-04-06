@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from .hello_world import HelloWorldHandler
+from .test import TestHandler
 
 
 urls = [
-    (r'hello_world', HelloWorldHandler)
+    (r'', TestHandler)
 ]
