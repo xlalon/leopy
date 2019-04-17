@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from .oauth import *
+from .info import *
 
 urls = [
     # github登录路由
@@ -11,4 +12,6 @@ urls = [
     (r'oauth/account_register', AccountRegisterHandler),
     # common_login
     (r'oauth/common_login', CommonLoginHandler),
+    # info
+    (r'user', UserInfoHandler),
 ]

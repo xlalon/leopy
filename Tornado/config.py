@@ -24,7 +24,7 @@ class _DBConfig:
     MySQL_PORT = '3306'
     MySQL_USER = 'root'
     MySQL_AUTH = 'Xiao0000'
-    MySQL_DB = 'leopy'
+    MySQL_DB = 'leo'
     Redis_HOST = '127.0.0.1'
     Redis_PORT = 6379
     Redis_USER = ''

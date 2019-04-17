@@ -10,4 +10,4 @@ def dict2_hds(src):
 
 
 if __name__ == '__main__':
-    pass
+    print('Hello, Beautiful!')
