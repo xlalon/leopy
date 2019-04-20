@@ -7,6 +7,7 @@ from json import JSONDecodeError
 from tornado.web import HTTPError
 from tornado.httpclient import HTTPRequest, AsyncHTTPClient
 
+from app.models import mysql_db, redis_db
 from config import Config
 
 
@@ -14,6 +15,8 @@ class BaseService:
 
     def __init__(self, *args, **kwargs):
         self.config = Config
+        self.mysql_db = mysql_db
+        self.redis_db = redis_db
 
     @staticmethod
     def _get(url, data):

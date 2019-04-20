@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  web:
+    image: xlalon/python:part1
+#command: python app.py
+#    deploy:
+# replicas: 3
+# restart_policy:
+#   condition: on-failure
+# resources:
+#   limits:
+#     cpus: "0.1"
+#     memory: 50M
+    ports:
+      - "4000:80"
+    volumes:
+      - .:/code
+    links:
+      - redis
+#    networks:
+#      - webnet
+  redis:
+    image: redis
+#networks:
+#webnet:
