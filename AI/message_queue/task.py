@@ -7,7 +7,7 @@
     pipenv install pika
 
 3. Start rabbitmq server
-     brew services start rabbitmq/rabbitmq-server(add the path first)
+     brew service start rabbitmq/rabbitmq-server(add the path first)
 """
 import pika
 import sys
