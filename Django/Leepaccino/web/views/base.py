@@ -5,12 +5,12 @@ from django.http import (
     Http404,
     JsonResponse
 )
+
 from django.shortcuts import render
-from passlib.hash import bcrypt
 from hashlib import sha1
 
 from Leepaccino.settings import SECRET_KEY
-from ..utils.exception import ArgumentNullException
+from ..utils.exception import MissArgumentException
 from ..utils.helper import ObjectDict
 
 
@@ -31,7 +31,6 @@ class BaseView(View):
         # ==================================================
         # ----------- Request Headers Set ------------------
         self._prepare(request)
-        self.get_user(request, token=self._token)
         return super().dispatch(request, *args, **kwargs)
         # --------------------------------------------------
         # ==================================================
@@ -53,32 +52,6 @@ class BaseView(View):
         mid = token_db.split(label)[1]
         return prefix + '.' + mid + suffix
 
-    def get_user(self, request, *, email=None, password=None, token=None):
-        user, user_info = None, None
-        # auth with token
-        if token:
-            label = '$2b$12$'
-            token_suffix = token[5:]
-            token_db = label + token_suffix[:-4]
-            user = User.objects.filter(token=token_db).first()
-        # auth with email + password
-        if all([not user, email, password]):
-            user_exists = User.objects.filter(email=email).first()
-            if user_exists:
-                if bcrypt.verify(password, user_exists.token):
-                    user = user_exists
-                    token = self._gen_token(user.token)
-        if user:
-            user_info = ObjectDict(
-                dict(id=user.id,
-                     email=user.email,
-                     token=token,
-                     username=user.username,
-                     realname=user.realname,
-                     birthday=user.birthday))
-        request.user = user_info
-        return user_info
-
     @property
     def headers(self):
         return dict(
@@ -94,7 +67,8 @@ class BaseView(View):
             Site=self._site,
             Client=self._client,
             Token=self._token,
-            Language=self._language)
+            Language=self._language
+        )
 
     def get(self, request):
         # Subclass Rewrite
@@ -116,7 +90,7 @@ class BaseView(View):
         elif query_param in self.request.POST:
             return self.request.POST[query_param]
         elif default is _INVALID_OBJECT:
-            raise ArgumentNullException(
+            raise MissArgumentException(
                 'Argument `{}` must not be null'.format(query_param))
         else:
             return default
@@ -130,7 +104,7 @@ class BaseView(View):
             return self.get_argument(x, default)
         result = list(map(get_args, query_params))
         if _INVALID_OBJECT in result:
-            raise ArgumentNullException(
+            raise MissArgumentException(
                 'Argument `{}` must not be null'.format(query_params))
         if result_type is dict:
             return dict(zip(query_params, result))

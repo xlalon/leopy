@@ -5,6 +5,8 @@ from time import time
 
 from .. import helper, config
 from ..base import BaseHandler
+from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
 
 
 class UserRegisterHandler(BaseHandler):

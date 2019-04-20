@@ -3,7 +3,7 @@
 from django.urls import path
 from .info import UserInfoView
 from .register import UserRegisterHandler
-from .common_login import CommonLoginHandler
+from .login import CommonLoginHandler
 
 
 urls_user = [

@@ -54,6 +54,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Leepaccino.urls'
+LOGIN_URL = '/login'
 
 TEMPLATES = [
     {

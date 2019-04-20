@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
 
 
-class ArgumentNullException(ValueError):
+class MissArgumentException(ValueError):
     pass

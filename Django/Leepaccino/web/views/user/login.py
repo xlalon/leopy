@@ -5,6 +5,9 @@ from ..base import BaseHandler
 
 class CommonLoginHandler(BaseHandler):
 
+    def get(self):
+        return self.render_html()
+
     def post(self, request):
         token = self.get_argument('token', '')
         email, password = self.get_arguments(['email', 'password'], default='')
