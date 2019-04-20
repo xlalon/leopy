@@ -3,7 +3,7 @@
 from tornado.gen import multi
 from app.utils.helpers import dict_get
 from config import Config
-from app.services.user.oauth_third.auth_github import OAuthGITHUB
+from app.service.user.oauth_third.auth_github import OAuthGITHUB
 
 
 class GithubCheckBus:

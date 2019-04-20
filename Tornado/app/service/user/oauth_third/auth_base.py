@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from app.services.svs_base import BaseService
+from app.service.svs_base import BaseService
 
 
 class OAuthBase(BaseService):

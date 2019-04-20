@@ -1,3 +1,0 @@
- [Consumer] Waiting for messages. To exit press CTRL+C
- [Consumer] Received b'Hello RabbitMQ'
-[Consumer] Done

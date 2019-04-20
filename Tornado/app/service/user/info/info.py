@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 from app.models.user import Users
-from app.services.svs_base import BaseService
+from app.service.svs_base import BaseService
 from app.utils.db import db_ins2dict
 
 
