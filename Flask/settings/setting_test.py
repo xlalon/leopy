@@ -5,4 +5,4 @@ from .setting import Config
 
 
 class TestConfig(Config):
-    pass
+    ENV = 'test'

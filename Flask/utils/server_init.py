@@ -4,7 +4,7 @@ from flask import Flask
 from views import bp_and_urls
 
 
-def create_app(mode='test'):
+def create_app(mode):
     """创建app工厂方法"""
 
     app = Flask(__name__)

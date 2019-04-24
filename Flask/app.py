@@ -1,19 +1,20 @@
 # -*- coding: utf-8 -*-
 
-import sys
+import argparse
 
 from utils.server_init import create_app
 
 
 def read_mode_from_command():
-    for var in sys.argv[1:]:
-        mode_name, mode_type = var.split('=')
-        if mode_name == 'mode':
-            return mode_type
-    return 'test'
+    args = argparse.ArgumentParser()
+    args.add_argument('--mode', nargs=1, type=str, default=['test'], help='Run mode')
+    args = args.parse_args()
+    run_mode = args.mode[0]
+
+    return run_mode
 
 
 if __name__ == '__main__':
     mode = read_mode_from_command()
-    app = create_app(mode=mode)
+    app = create_app(mode)
     app.run()
