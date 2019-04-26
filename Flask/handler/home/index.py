@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from ..base import BaseResource
+from ..base import BaseHandler
 
 
-class IndexResource(BaseResource):
+class IndexHandler(BaseHandler):
 
     def get(self):
 
-        return {'Hello': 'Index'}
+        return self.render_data(dict(Location='Homepage'))

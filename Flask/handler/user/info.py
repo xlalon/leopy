@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from ..base import BaseResource
+from ..base import BaseHandler
+from service.models.user.account import AccountService
 
 
-class InfoResource(BaseResource):
+class InfoHandler(BaseHandler):
 
     def get(self):
-        return {"Hello": 'Resource'}
+        user_loe = AccountService().login_service()
+        return self.render_data(user_loe)

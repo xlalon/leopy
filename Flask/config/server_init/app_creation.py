@@ -2,15 +2,18 @@
 
 from flask import Flask
 
+from config.settings import ENV_CONFIG
 from handler.user import user_bp
 from handler.home import home_bp
-from config.settings import ENV_CONFIG
+from models import db
 
 
 def create_app():
 
     app = Flask(__name__)
     app.config.from_object(load_config())
+
+    db.init_app(app)
 
     register_bp(app)
 
