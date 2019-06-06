@@ -23,11 +23,15 @@ def get_url(url, method='GET', query=None, body=None, headers={}, username=None,
 
 
 def fake_user_agent():
-    ua = UserAgent()
-    print(ua.ie)
+    ua = UserAgent(verify_ssl=False)
+    return ua.chrome
+
+
+def header_with_fake_ua():
+    fake_ua = fake_user_agent()
+    return {'User-Agent': fake_ua}
 
 
 if __name__ == '__main__':
-    pass
-    # fake_user_agent()
+    print(header_with_fake_ua())
     # print(get_url('https://www.qidian.com/'))
