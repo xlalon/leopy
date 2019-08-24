@@ -34,13 +34,13 @@ class UserInfoHandler(BaseHandler):
         # username & password, optional
         username = self.get_argument('username', '')
         password = self.get_argument('password', '')
-        # role id, str split with ',', eg, '1,2,3'
-        role_id = self.get_argument('role_id', '')
-        if role_id:
+        # role id
+        role_id = self.get_argument('role_id', None)
+        if role_id is not None:
             role_id = int(role_id)
         # user account status 0(inactive)/1(active)
-        status = self.get_argument('status', '')
-        if status:
+        status = self.get_argument('status', None)
+        if status is not None:
             status = int(status)
         # group ids, str split with ',', eg, '1,2,3'
         groups = self.get_argument('groups', '')
