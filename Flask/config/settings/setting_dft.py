@@ -18,6 +18,7 @@ ENV_CONFIG = _env_config()
 
 class Config:
     DEBUG = True
+    SECRET_KEY = 'AFA123'
     # SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://{username}:{passoword}@{host}:{port}/{database}?charset=utf8mb4'.format(
     #     username=ENV_CONFIG['MYSQL_USERNAME'],
     #     passoword=ENV_CONFIG['MYSQL_PASSWORD'],
