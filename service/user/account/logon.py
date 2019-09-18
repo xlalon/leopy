@@ -1,6 +1,8 @@
 #! /usr/bin/env python
 
+from flask import current_app, session
 from flask_login import login_user, logout_user
+from flask_principal import identity_changed, Identity, AnonymousIdentity
 
 from models.user import User
 from service.base import BaseService
@@ -30,6 +32,9 @@ class LogonService(BaseService):
             msg = self.ResponseMessages.MSG_USER_STATUS_INACTIVE
             return code, msg, data
         login_user(user)
+        # Tell Flask-Principal the identity changed
+        identity_changed.send(current_app._get_current_object(),
+                              identity=Identity(user.id))
         # user info detail
         data = UserInfoService().user_info_get([user.email])
         data = data[0] if data else {}
@@ -38,4 +43,10 @@ class LogonService(BaseService):
 
     def logout(self):
         logout_user()
+        # Remove session keys set by Flask-Principal
+        for key in ('identity.name', 'identity.auth_type'):
+            session.pop(key, None)
+        # Tell Flask-Principal the user is anonymous
+        identity_changed.send(current_app._get_current_object(),
+                              identity=AnonymousIdentity())
         return None

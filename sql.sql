@@ -1,5 +1,5 @@
 show tables;
-
+use leo;
 select * from u_user;
 select * from u_group;
 select * from u_user_group;
@@ -7,6 +7,7 @@ select * from u_permission;
 select * from u_user_permission;
 
 
+alter table u_user add phone varchar(16) not null default '' after email;
 CREATE TABLE u_user(
     id INT auto_increment PRIMARY KEY COMMENT '用户表id',
     email VARCHAR(64) NOT NULL COMMENT 'email地址',

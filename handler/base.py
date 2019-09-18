@@ -2,8 +2,10 @@
 
 from flask import request
 from flask_restful import Resource
+from flask_principal import Permission, RoleNeed
 
 invalid_obj = object()
+admin_permission = Permission(RoleNeed('admin'))
 
 
 class BaseHandler(Resource):
