@@ -8,16 +8,17 @@ select * from u_user_permission;
 
 
 CREATE TABLE u_user(
-id INT auto_increment PRIMARY KEY COMMENT '用户表id',
-email VARCHAR(64) NOT NULL COMMENT 'email地址',
-username VARCHAR(64) NOT NULL DEFAULT '' COMMENT '用户名,默认为邮箱前缀',
-password_hash VARCHAR(256) NOT NULL COMMENT '用户密码',
-role_id tinyint NOT NULL DEFAULT 3 COMMENT '用户角色id, 1:admin 2:leader, 3:staff',
-status tinyint NOT NULL default 0 COMMENT '用户账号状态, 0:未激活, 1:激活',
-join_time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建账号时间',
-UNIQUE KEY email(email),
-KEY join_time(join_time)
-)engine=Innodb charset=utf8 COMMENT '用户表';
+    id INT auto_increment PRIMARY KEY COMMENT '用户表id',
+    email VARCHAR(64) NOT NULL COMMENT 'email地址',
+    phone VARCHAR(16) NOT NULL DEFAULT '' COMMENT '手机',
+    username VARCHAR(64) NOT NULL DEFAULT '' COMMENT '用户名,默认为邮箱前缀',
+    password_hash VARCHAR(256) NOT NULL COMMENT '用户密码',
+    role_id tinyint NOT NULL DEFAULT 3 COMMENT '用户角色id, 1:admin 2:leader, 3:staff',
+    status tinyint NOT NULL default 0 COMMENT '用户账号状态, 0:未激活, 1:激活',
+    join_time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建账号时间',
+    UNIQUE KEY email(email),
+    KEY join_time(join_time)
+    )engine=Innodb charset=utf8 COMMENT '用户表';
 
 
 CREATE TABLE u_group(
@@ -27,7 +28,7 @@ name VARCHAR(64) NOT NULL COMMENT '组name',
 UNIQUE KEY codename(code, name)
 )engine=Innodb charset=utf8 COMMENT '用户组表';
 
-
+drop table u_user_group;
 CREATE TABLE u_user_group(
 id INT auto_increment PRIMARY KEY COMMENT '主键id',
 uid INT NOT NULL COMMENT '关联的用户id',

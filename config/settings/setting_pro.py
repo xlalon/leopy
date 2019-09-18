@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from .setting_dft import Config
+from .setting_dft import DftConfig
 
 
-class ProDeConfig(Config):
-    ENV = 'product'
-    DEBUG = False
+class ProDeConfig(DftConfig):
+    pass
