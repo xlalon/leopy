@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-from handler.base import BaseHandler
+from handler.base import BaseHandler, admin_permission
 from service.user.account.info import UserInfoService
 
 
@@ -14,7 +14,7 @@ class CheckUserExistsHandler(BaseHandler):
 
 
 class UserInfoHandler(BaseHandler):
-
+    @admin_permission.require(403)
     def get(self):
         """user info"""
         # emails split with ',', eg. 'test1@sinaif.com,test2@sinaif.com'
@@ -27,6 +27,7 @@ class UserInfoHandler(BaseHandler):
         data = UserInfoService().user_info_get(email)
         return self.render_data(data)
 
+    @admin_permission.require(403)
     def post(self):
         """user info update"""
         # email, used to get user info, must.

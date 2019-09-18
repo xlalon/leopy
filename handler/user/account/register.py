@@ -1,10 +1,11 @@
 #! /usr/bin/env python
 
-from handler.base import BaseHandler
+from handler.base import BaseHandler, admin_permission
 from service.user.account.info import UserInfoService
 
 
 class RegisterHandler(BaseHandler):
+    @admin_permission.require(403)
     def post(self):
         # email & username & password & groups & permissions
         # username default trans to capitalize, if username not provide, default set to email prefix

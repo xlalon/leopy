@@ -102,3 +102,7 @@ def error_handler(app):
     @app.errorhandler(PermissionDenied)
     def permission_denied_handler(error):
         return PermissionDenied().to_json(msg=error.msg)
+
+    @app.errorhandler(403)
+    def permission_denied_handler(error):
+        return PermissionDenied().to_json(msg='PermissionDenied.')

@@ -1,11 +1,12 @@
 #! /usr/bin/env python
 
-from handler.base import BaseHandler
+from handler.base import BaseHandler, admin_permission
 from service.user.account.permission import PermissionService
 
 
 class PermissionHandler(BaseHandler):
 
+    @admin_permission.require(403)
     def get(self):
         """permission list"""
         # permission id, str split with `,`, eg. '1,2,3'
@@ -18,6 +19,7 @@ class PermissionHandler(BaseHandler):
 
         return self.render_data(data=data)
 
+    @admin_permission.require(403)
     def post(self):
         code = self.get_argument('code')
         name = self.get_argument('name')
