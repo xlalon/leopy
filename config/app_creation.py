@@ -33,7 +33,6 @@ def create_app():
     register_bp(app)
     # error handler
     error_handler(app)
-
     return app
 
 
