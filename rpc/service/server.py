@@ -1,20 +1,9 @@
-# Copyright 2015 gRPC authors.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-"""The Python implementation of the GRPC helloworld.Greeter server."""
+#! /usr/bin/env python
+# -*- coding: utf8 -*-
 
-import logging
 import grpc
+import time
+import consul
 from concurrent import futures
 from multiprocessing import Process
 
@@ -32,21 +21,50 @@ class Greeter(LeoFlaskServicer):
         return HelloReply(message='HelloAgain, %s!' % request.name)
 
 
-def _serve():
-    http_address = '0.0.0.0:5556'
+def register(service_name, host, port):
+    print("register started...")
+    # 连接consul 服务器，默认是127.0.0.1，可用host参数指定host
+    c = consul.Consul()
+    # 健康检查的ip，端口，检查时间
+    check = consul.Check.tcp(host, port, "30s")
+    # 注册服务
+    c.agent.service.register(
+        f"{service_name}",
+        f"{service_name}-{host}",
+        address=host,
+        port=port,
+        check=check
+    )
+    print("leorpc注册服务成功")
+    print("services: " + str(c.agent.services()))
+
+
+def unregister(port):
+    print("unregister started")
+    c = consul.Consul()
+    c.agent.service.deregister(f"leorpc-{port}")
+
+
+def _serve(host, port):
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     add_LeoFlaskServicer_to_server(Greeter(), server)
-    server.add_insecure_port(http_address)
-    print(' * Rpc starting on',  http_address)
+    server.add_insecure_port('[::]:' + str(port))
+    register('leorpc', host, port)
     server.start()
-    server.wait_for_termination()
+    print(f"{port} server start success")
+    try:
+        while True:
+            time.sleep(180000)
+    except KeyboardInterrupt:
+        unregister(port)
+        server.stop(0)
 
 
-def run():
-    p = Process(target=_serve)
-    p.start()
+def run(host='127.0.0.1', port=5556):
+    Process(target=_serve, args=(host, port)).start()
 
 
 if __name__ == '__main__':
-    logging.basicConfig()
-    run()
+    pass
+    # logging.basicConfig()
+    # run()

@@ -1,32 +1,37 @@
-# Copyright 2015 gRPC authors.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-"""The Python implementation of the GRPC helloworld.Greeter client."""
-
-from __future__ import print_function
-import logging
-
+#! /usr/bin/env python
 import grpc
+import logging
+from dns import resolver
+from dns.exception import DNSException
 
 from test.rpc_test.client.leoflask_test_pb2 import HelloRequest
 from test.rpc_test.client.leoflask_test_pb2_grpc import LeoFlaskStub
+
+# 连接consul服务，作为dns服务器
+consul_resolver = resolver.Resolver()
+consul_resolver.port = 8600
+consul_resolver.nameservers = ["127.0.0.1"]
+
+
+def get_ip_port():
+    """查询出可用的一个ip，和端口"""
+    try:
+        dnsanswer = consul_resolver.query("leorpc.service.consul", "A")
+        dnsanswer_srv = consul_resolver.query("leorpc.service.consul", "SRV")
+    except DNSException:
+        return None, None
+    return dnsanswer[0].address, dnsanswer_srv[0].port
+
+
+_HOST, _PORT = get_ip_port()
+print(_HOST, _PORT)
 
 
 def run():
     # NOTE(gRPC Python Team): .close() is possible on a channel and should be
     # used in circumstances in which the with statement does not fit the needs
     # of the code.
-    with grpc.insecure_channel('localhost:5556') as channel:
+    with grpc.insecure_channel(f'{_HOST}:{_PORT}') as channel:
         stub = LeoFlaskStub(channel)
         response = stub.SayHello(HelloRequest(name='HIHIHI'))
         print("Greeter client received: " + response.message)
