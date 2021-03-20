@@ -9,7 +9,7 @@ Flask-Script==2.0.6
 itsdangerous==1.1.0
 grpcio==1.24.3
 grpcio-tools==1.24.3
-Jinja2==2.10.1
+Jinja2==2.11.3
 pytz==2019.2
 pymysql==0.9.3
 python-dotenv==0.10.3
